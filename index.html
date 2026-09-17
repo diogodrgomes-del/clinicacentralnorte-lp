@@ -419,12 +419,17 @@
     </form>
   </div>
 
-  <!-- EDITAR: substitua o src do mapa pelo endereço real (Google Maps > Compartilhar > Incorporar) -->
-  <div class="mapa">
-    <iframe
-      title="Localização da Clínica Dentária Central Norte"
-      src="https://www.google.com/maps?q=clinica+odontologica&output=embed"
-      width="600" height="420" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- EDITAR: endereço do mapa (data-mapa) e o link do botão (Google Maps > Compartilhar) -->
+  <div class="mapa" id="mapa"
+       data-mapa="https://www.google.com/maps?q=Rua+Exemplo+123+Centro+Norte&output=embed">
+    <div class="mapa__capa">
+      <svg class="mapa__pin" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <p class="mapa__end">Rua Exemplo, 123 — Centro Norte</p>
+      <div class="mapa__acoes">
+        <button class="btn btn--linha" type="button" id="verMapa">Ver o mapa aqui</button>
+        <a class="btn btn--primario" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Exemplo+123+Centro+Norte" target="_blank" rel="noopener">Traçar rota no Google Maps</a>
+      </div>
+    </div>
   </div>
 </section>
 

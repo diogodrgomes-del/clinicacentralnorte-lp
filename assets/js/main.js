@@ -153,7 +153,22 @@ document.addEventListener('DOMContentLoaded', () => {
     alvos.forEach((el) => { if (el.classList.contains('rev')) obs.observe(el); });
   }
 
-  /* ---------- 9. Ano no rodapé ---------- */
+  /* ---------- 9. Mapa: carrega só quando o visitante pede ---------- */
+  const mapa = document.getElementById('mapa');
+  const verMapa = document.getElementById('verMapa');
+
+  if (mapa && verMapa) {
+    verMapa.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = mapa.dataset.mapa;
+      iframe.title = 'Localização da Clínica Dentária Central Norte';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      mapa.replaceChildren(iframe);
+    });
+  }
+
+  /* ---------- 10. Ano no rodapé ---------- */
   const ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
 });

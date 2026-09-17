@@ -319,7 +319,17 @@ button,input,select,textarea{font:inherit; color:inherit}
 .form__nota{margin:.9rem 0 0; font-size:.8rem; color:var(--tinta-50); text-align:center}
 
 .mapa{margin-top:clamp(2.5rem,6vw,4rem)}
-.mapa iframe{width:100%; height:340px; border:0; filter:grayscale(.25) contrast(1.05)}
+.mapa__capa{
+  display:grid; justify-items:center; gap:.9rem; text-align:center;
+  padding:clamp(2rem,6vw,3.2rem) 1.25rem;
+  background:rgba(255,255,255,.06); border-top:1px solid var(--linha-esc);
+}
+.mapa__pin{width:2.2rem; height:2.2rem; fill:none; stroke:var(--azul-200); stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round}
+.mapa__end{margin:0; font-family:var(--fonte-t); font-weight:600; font-size:1.05rem; color:#fff}
+.mapa__acoes{display:flex; flex-wrap:wrap; gap:.7rem; justify-content:center}
+.mapa__acoes .btn--linha{border-color:rgba(175,198,238,.5); color:var(--creme)}
+.mapa__acoes .btn--linha:hover{background:rgba(255,255,255,.1); border-color:var(--creme)}
+.mapa iframe{width:100%; height:340px; border:0; display:block; filter:grayscale(.2) contrast(1.05)}
 
 /* ---------- rodapé ---------- */
 .rodape{background:var(--azul-900); color:#A9BFE2; padding:clamp(2.5rem,5vw,4rem) 0 1.6rem; font-size:.92rem}
