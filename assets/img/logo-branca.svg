@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 92" width="300" height="92" role="img" aria-label="Clínica Dentária Central Norte">
+  <g transform="translate(6,10)">
+    <path d="M6 22c14-13 34-13 48 0-8 12-18 18-24 18S14 34 6 22Z" fill="#FAF6EC"/>
+    <path d="M28 6c12-8 28-6 38 4-6 9-14 14-20 14-7 0-13-7-18-18Z" fill="#FAF6EC" opacity=".55"/>
+  </g>
+  <g fill="#FAF6EC" font-family="Montserrat, Arial, sans-serif">
+    <text x="86" y="30" font-size="15" font-weight="500" letter-spacing=".5">Clínica Dentária</text>
+    <text x="86" y="58" font-size="26" font-weight="800" letter-spacing="1.5">CENTRAL</text>
+    <text x="86" y="78" font-size="15" font-weight="600" letter-spacing=".5">Norte</text>
+  </g>
+</svg>

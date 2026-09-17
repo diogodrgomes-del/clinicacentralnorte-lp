@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" width="640" height="800" role="img" aria-label="lentes e facetas">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E2F6B"/>
+      <stop offset="1" stop-color="#1751BC"/>
+    </linearGradient>
+    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#ffffff" stroke-opacity=".05" stroke-width="10"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="800" fill="url(#g)"/>
+  <rect width="640" height="800" fill="url(#p)"/>
+  <g fill="#ffffff" fill-opacity=".55" font-family="Montserrat, Arial, sans-serif" text-anchor="middle">
+    <text x="320" y="394" font-size="20" font-weight="700" letter-spacing="2">FOTO</text>
+    <text x="320" y="422" font-size="15" font-weight="500">lentes e facetas</text>
+  </g>
+</svg>
