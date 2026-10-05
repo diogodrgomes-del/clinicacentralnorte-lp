@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# EDITAR: domínio real
-Sitemap: https://www.clinicacentralnorte.com.br/sitemap.xml

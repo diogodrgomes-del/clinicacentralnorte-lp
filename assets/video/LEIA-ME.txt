@@ -1,8 +1,0 @@
-Coloque aqui os depoimentos em vídeo com estes nomes:
-
-  depoimento-1.mp4
-  depoimento-2.mp4
-  depoimento-3.mp4
-
-Formato ideal: vertical (9:16), H.264, até ~15 MB cada.
-A capa de cada vídeo fica em assets/img/ (video-1, video-2, video-3).
