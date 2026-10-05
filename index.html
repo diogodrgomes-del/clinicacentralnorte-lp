@@ -3,357 +3,387 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Implantes Dentários em Londrina | Sorrifácil Londrina</title>
-  <meta name="description" content="Volte a sorrir e a comer o que gosta sem se preocupar. Implantes dentários e prótese protocolo em Londrina. Agende sua avaliação pelo WhatsApp.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0b2a4a">
+  <title>Implantes Dentários em Londrina | Clínica Dentária Central Norte</title>
+  <meta name="description" content="Implantes dentários e prótese protocolo em Londrina. Volte a sorrir e a comer o que gosta sem se preocupar. Agende sua avaliação na Clínica Dentária Central Norte pelo WhatsApp.">
+  <meta name="theme-color" content="#0b1a3d">
   <!-- EDITAR: domínio final -->
   <link rel="canonical" href="https://SEU-DOMINIO.com.br/">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Implantes Dentários em Londrina | Sorrifácil Londrina">
-  <meta property="og:description" content="Chegou a hora de você voltar a sorrir e comer o que gosta sem se preocupar! Agende sua avaliação.">
-  <meta property="og:image" content="https://onmid.app/wp-content/uploads/2026/04/iScreen-Shoter-Safari-260410183853-1024x656.jpg">
+  <meta property="og:title" content="Implantes Dentários em Londrina | Clínica Dentária Central Norte">
+  <meta property="og:description" content="Chegou a hora de você voltar a sorrir e comer o que gosta sem se preocupar.">
+  <meta property="og:image" content="assets/img/logo-original.png">
+  <link rel="icon" href="assets/img/logo-original.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-original.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/casal.webp">
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Dentist",
-    "name": "Sorrifácil Londrina",
-    "description": "Implantes dentários e prótese protocolo em Londrina.",
-    "telephone": "+55 43 98819-8379",
-    "address": { "@type": "PostalAddress", "addressLocality": "Londrina", "addressRegion": "PR", "addressCountry": "BR" }
+    "name": "Clínica Dentária Central Norte",
+    "description": "Implantes dentários, prótese protocolo e tratamentos odontológicos em Londrina.",
+    "image": "assets/img/logo-original.png",
+    "address": { "@type": "PostalAddress", "addressLocality": "Londrina", "addressRegion": "PR", "addressCountry": "BR" },
+    "medicalSpecialty": ["Implantes dentários", "Prótese protocolo", "Ortodontia", "Clínica geral"]
   }
   </script>
 
-  <!-- EDITAR: cole aqui o Google Tag Manager / Meta Pixel do cliente.
-       Os cliques de WhatsApp e o envio do formulário já disparam eventos no dataLayer
-       ("whatsapp_click" e "lead_form"), prontos para virar conversão. -->
+  <!-- EDITAR: Google Tag Manager / Meta Pixel da clínica.
+       Os cliques no WhatsApp já disparam o evento "whatsapp_click" no dataLayer. -->
 </head>
 <body>
+
+  <div class="progresso" aria-hidden="true"><span id="progresso"></span></div>
 
   <!-- Cabeçalho -->
   <header class="topo" id="topo">
     <div class="wrap topo__in">
-      <a href="#inicio" class="topo__logo" aria-label="Sorrifácil Londrina — início">
-        <img src="https://onmid.app/wp-content/uploads/2024/10/logo-azul-e1775856053998.png" alt="Sorrifácil" width="148" height="31">
+      <a href="#inicio" class="marca" aria-label="Clínica Dentária Central Norte — início">
+        <img src="assets/img/logo-icone.png" alt="" width="54" height="27">
+        <span class="marca__txt"><small>Clínica Dentária</small><strong>CENTRAL <em>Norte</em></strong></span>
       </a>
-      <a class="btn btn--cta btn--sm" data-wa="topo" href="#" target="_blank" rel="noopener">
-        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar avaliação
+      <nav class="menu" aria-label="Principal">
+        <a href="#implantes">Implantes</a>
+        <a href="#protocolo">Protocolo</a>
+        <a href="#tratamentos">Tratamentos</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="btn btn--wa btn--sm" data-wa="topo" href="#" target="_blank" rel="noopener">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>Agendar</span>
       </a>
     </div>
   </header>
 
   <main>
 
-    <!-- 1. Hero + formulário -->
+    <!-- ============ HERO ============ -->
     <section class="hero" id="inicio">
+      <div class="hero__brilho hero__brilho--1" aria-hidden="true"></div>
+      <div class="hero__brilho hero__brilho--2" aria-hidden="true"></div>
+      <div class="hero__grade" aria-hidden="true"></div>
+
       <div class="wrap hero__grid">
         <div class="hero__texto">
-          <span class="selo">
-            <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-            Implantes Dentários aqui em Londrina
+          <span class="selo entra" style="--d:0">
+            <svg class="ico" aria-hidden="true"><use href="#i-estrela"/></svg>
+            Referência em implantes em Londrina
           </span>
-          <h1>Chegou a hora de <em>você voltar a sorrir</em> e comer o que gosta sem se preocupar!</h1>
-          <p class="hero__sub">Na Sorrifácil Londrina, por meio da avaliação, nós encontramos o tratamento indicado para o seu caso.</p>
+          <p class="hero__gancho entra" style="--d:1">Chegou a hora de <strong>você voltar a sorrir</strong> e comer o que gosta sem se preocupar!</p>
+          <h1 class="entra" style="--d:2">Implantes Dentários <span class="destaque-serif">aqui em Londrina</span></h1>
+          <p class="hero__sub entra" style="--d:3">Implantes e prótese protocolo com avaliação cuidadosa, explicação clara de cada etapa e uma equipe que entende quem quer voltar a ter segurança no sorriso.</p>
 
-          <ul class="hero__provas">
-            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Sorriso devolvido em 7 dias</li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Implantes e Prótese Protocolo</li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Equipe de dentistas avaliadores</li>
+          <div class="hero__acoes entra" style="--d:4">
+            <a class="btn btn--wa btn--lg brilha" data-wa="hero" href="#" target="_blank" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar uma avaliação
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#identifica">
+              Ver se é para mim <svg class="ico" aria-hidden="true"><use href="#i-seta-baixo"/></svg>
+            </a>
+          </div>
+
+          <ul class="hero__provas entra" style="--d:5">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Avaliação com dentista</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Plano claro antes de começar</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Atendimento sem pressa</li>
           </ul>
-
-          <a class="btn btn--cta btn--lg hero__btn" data-wa="hero" href="#" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar uma avaliação
-          </a>
         </div>
 
-        <div class="cartao-form" id="agendar">
-          <h2>Vem pra Sorrifácil Londrina</h2>
-          <p>Preencha e fale direto com a nossa equipe no WhatsApp.</p>
-          <form id="form-lead" novalidate>
-            <label class="campo">
-              <span>Seu nome</span>
-              <input type="text" name="nome" autocomplete="name" placeholder="Como podemos te chamar?">
-            </label>
-            <label class="campo">
-              <span>WhatsApp *</span>
-              <input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(43) 99999-9999" required>
-            </label>
-            <label class="campo">
-              <span>Quantos dentes perdeu? *</span>
-              <select name="dentes" required>
-                <option value="">Selecione</option>
-                <option>1 dente</option>
-                <option>2 a 3 dentes</option>
-                <option>4 ou mais dentes</option>
-                <option>Todos / uso dentadura</option>
-              </select>
-            </label>
-            <label class="campo">
-              <span>Em que bairro mora? *</span>
-              <input type="text" name="bairro" placeholder="Ex.: Centro" required>
-            </label>
-            <p class="form__erro" id="form-erro" role="alert" hidden></p>
-            <button type="submit" class="btn btn--cta btn--bloco">
-              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar avaliação
-            </button>
-            <p class="form__nota">
-              <svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>
-              Seus dados são usados só para o agendamento.
-            </p>
-          </form>
+        <div class="hero__foto entra" style="--d:2">
+          <div class="hero__halo" aria-hidden="true"></div>
+          <img src="assets/img/casal.webp" alt="Casal sorrindo com dentes bonitos e saudáveis" width="980" height="656" fetchpriority="high">
+          <div class="flutua flutua--1">
+            <span class="flutua__ico"><svg aria-hidden="true"><use href="#i-dente"/></svg></span>
+            <div><strong>Implantes</strong><small>e Prótese Protocolo</small></div>
+          </div>
+          <div class="flutua flutua--2">
+            <span class="estrelas" aria-label="5 estrelas">
+              <svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg>
+            </span>
+            <small>Pacientes que voltaram a sorrir</small>
+          </div>
         </div>
       </div>
-      <svg class="onda" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30s72 33 158 31c39-1 93-7 134-23 21-8 52-18 80-24 27-6 39-6 50-8 22-2 51 0 75 6 24 5 71 23 101 36 76 32 134 44 193 50 23 2 49 3 103-3s106-26 106-26v31H0z"/></svg>
+
+      <svg class="hero__onda" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path class="onda-a" d="M0 70C240 120 480 120 720 85S1200 10 1440 40V120H0Z"/>
+        <path class="onda-b" d="M0 95C300 125 600 110 860 92S1260 60 1440 80V120H0Z"/>
+      </svg>
     </section>
 
-    <!-- 2. Para quem é -->
+    <!-- ============ NÚMEROS / REFERÊNCIA ============ -->
+    <!-- EDITAR: confirme os números com a clínica antes de publicar -->
+    <section class="numeros" aria-label="A clínica em números">
+      <div class="wrap numeros__grid">
+        <div class="numero revela"><strong><span data-conta="10">0</span>+</strong><span>anos cuidando de sorrisos em Londrina</span></div>
+        <div class="numero revela"><strong><span data-conta="3000">0</span>+</strong><span>pacientes atendidos</span></div>
+        <div class="numero revela"><strong><span data-conta="9">0</span></strong><span>especialidades em um só lugar</span></div>
+        <div class="numero revela"><strong><span data-conta="4.9" data-casas="1">0</span><svg class="ico" aria-hidden="true"><use href="#i-estrela"/></svg></strong><span>de avaliação no Google</span></div>
+      </div>
+    </section>
+
+    <!-- ============ VOCÊ SE IDENTIFICA? ============ -->
+    <section class="sec" id="identifica">
+      <div class="wrap wrap--medio">
+        <span class="rotulo revela">Toque no que acontece com você</span>
+        <h2 class="titulo revela">Você se <span class="destaque-serif">identifica</span> com alguma dessas situações?</h2>
+
+        <div class="dores revela" role="group" aria-label="Situações">
+          <button class="dor" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-sorriso"/></svg>Tenho vergonha de sorrir</button>
+          <button class="dor" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-dentadura"/></svg>Minha dentadura solta ou machuca</button>
+          <button class="dor" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-prato"/></svg>Tenho dificuldade para mastigar</button>
+          <button class="dor" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-camera"/></svg>Evito aparecer em fotos</button>
+          <button class="dor" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-dente"/></svg>Perdi um ou mais dentes</button>
+          <button class="dor" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-ponte"/></svg>Uso ponte móvel</button>
+        </div>
+
+        <div class="resultado" id="resultado" aria-live="polite" hidden>
+          <div class="resultado__barra"><span id="resultado-barra"></span></div>
+          <p class="resultado__titulo" id="resultado-titulo"></p>
+          <p class="resultado__txt">Isso tem solução, e pode ser mais simples do que você imagina. Na avaliação, o dentista mostra o caminho certo para o seu caso.</p>
+          <a class="btn btn--wa btn--lg brilha" id="resultado-btn" data-wa="identifica" href="#" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Quero resolver isso
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMPLANTES ============ -->
+    <section class="sec sec--escura" id="implantes">
+      <div class="sec__brilho" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="rotulo rotulo--claro revela">Nossa especialidade</span>
+        <h2 class="titulo titulo--claro revela">Dentes fixos, firmes e com <span class="destaque-serif">aparência natural</span></h2>
+        <p class="subtitulo subtitulo--claro revela">Dois caminhos para devolver o seu sorriso. Na avaliação, a gente indica o certo para você.</p>
+
+        <div class="solucoes">
+          <article class="solucao vidro revela" id="implante">
+            <span class="solucao__ico"><svg aria-hidden="true"><use href="#i-implante"/></svg></span>
+            <span class="solucao__tag">Perdeu um ou alguns dentes</span>
+            <h3>Implante dentário</h3>
+            <p>Uma raiz de titânio substitui a raiz do dente perdido e recebe uma coroa sob medida. Fica firme como um dente de verdade.</p>
+            <ul class="lista-check">
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Não precisa desgastar os dentes vizinhos</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Mastigação firme e segura</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Resultado com aparência natural</li>
+            </ul>
+            <a class="btn btn--wa brilha" data-wa="implante" data-msg="Olá! Vim pelo site e quero saber sobre implante dentário." href="#" target="_blank" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Quero saber sobre implante
+            </a>
+          </article>
+
+          <article class="solucao vidro vidro--destaque revela" id="protocolo">
+            <span class="solucao__fita">Mais procurado</span>
+            <span class="solucao__ico"><svg aria-hidden="true"><use href="#i-protocolo"/></svg></span>
+            <span class="solucao__tag">Perdeu todos os dentes ou usa dentadura</span>
+            <h3>Prótese protocolo</h3>
+            <p>Uma arcada completa de dentes fixada sobre implantes. Diga adeus à dentadura que solta, machuca e limita o que você come.</p>
+            <ul class="lista-check">
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Dentes fixos, sem tirar para dormir</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Volte a comer o que gosta</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Fale e sorria com confiança</li>
+            </ul>
+            <a class="btn btn--wa brilha" data-wa="protocolo" data-msg="Olá! Vim pelo site e quero saber sobre a prótese protocolo." href="#" target="_blank" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Quero saber sobre protocolo
+            </a>
+          </article>
+        </div>
+
+        <!-- Comparativo -->
+        <div class="compara revela">
+          <h3 class="compara__titulo">Dentadura <span>×</span> Protocolo fixo</h3>
+          <div class="compara__grid">
+            <ul class="compara__col compara__col--nao">
+              <li class="compara__cab">Dentadura</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Pode soltar ao falar ou comer</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Machuca a gengiva</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Limita a alimentação</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Precisa tirar todos os dias</li>
+            </ul>
+            <ul class="compara__col compara__col--sim">
+              <li class="compara__cab">Protocolo fixo</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Fica firme no lugar</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Conforto no dia a dia</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Come de tudo com segurança</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Não sai da boca</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ O QUE MUDA ============ -->
     <section class="sec" id="beneficios">
       <div class="wrap">
-        <h2 class="titulo">Os Implantes são para quem quer...</h2>
+        <span class="rotulo revela">O que muda na sua vida</span>
+        <h2 class="titulo revela">Os implantes são para quem <span class="destaque-serif">quer...</span></h2>
         <ul class="beneficios">
-          <li class="beneficio revela">
-            <span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-sorriso"/></svg></span>
-            <h3>Sua alta autoestima de volta</h3>
-          </li>
-          <li class="beneficio revela">
-            <span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-fala"/></svg></span>
-            <h3>Conforto e segurança para sorrir e falar</h3>
-          </li>
-          <li class="beneficio revela">
-            <span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-dente"/></svg></span>
-            <h3>Solucionar problemas com a dentadura ou ponte móvel</h3>
-          </li>
-          <li class="beneficio revela">
-            <span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-relogio"/></svg></span>
-            <h3>O sorriso devolvido em 7 dias</h3>
-          </li>
-          <li class="beneficio revela">
-            <span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-prato"/></svg></span>
-            <h3>Voltar a sentir o sabor dos alimentos e a confiança na mastigação</h3>
-          </li>
+          <li class="beneficio cartao revela"><span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-coracao"/></svg></span><h3>A autoestima de volta</h3><p>Sorrir sem colocar a mão na frente da boca.</p></li>
+          <li class="beneficio cartao revela"><span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-fala"/></svg></span><h3>Segurança para sorrir e falar</h3><p>Sem medo de a prótese escorregar no meio da conversa.</p></li>
+          <li class="beneficio cartao revela"><span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-prato"/></svg></span><h3>Sentir o sabor da comida</h3><p>Voltar a mastigar carne, pão e frutas com confiança.</p></li>
+          <li class="beneficio cartao revela"><span class="beneficio__ico"><svg aria-hidden="true"><use href="#i-dentadura"/></svg></span><h3>Dizer adeus à dentadura</h3><p>Uma solução fixa para quem já cansou da ponte móvel.</p></li>
         </ul>
-        <div class="centro">
-          <a class="btn btn--cta btn--lg" data-wa="beneficios" href="#" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Quero voltar a sorrir
-          </a>
-        </div>
       </div>
     </section>
 
-    <!-- 3. Depoimento em destaque -->
-    <section class="sec sec--azul" id="transformacao">
-      <div class="wrap destaque">
-        <div class="destaque__video revela">
-          <button class="yt" data-yt="FhDn6c_xokM" aria-label="Assistir depoimento em vídeo">
-            <img src="https://i.ytimg.com/vi/FhDn6c_xokM/hqdefault.jpg" alt="" loading="lazy">
-            <span class="yt__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
-          </button>
-        </div>
-        <div class="destaque__texto revela">
-          <h2>Uma transformação que faz qualquer um sorrir!</h2>
-          <blockquote>
-            <svg class="aspas" aria-hidden="true"><use href="#i-aspas"/></svg>
-            Eu sempre escondia meu sorriso por vergonha, e agora eu estou tão feliz de poder sorrir.
-          </blockquote>
-          <a class="btn btn--cta btn--lg" data-wa="transformacao" href="#" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Quero voltar a sorrir
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Como funciona -->
-    <section class="sec" id="como-funciona">
+    <!-- ============ COMO FUNCIONA ============ -->
+    <section class="sec sec--gelo" id="como-funciona">
       <div class="wrap">
-        <h2 class="titulo">Como funciona</h2>
-        <p class="subtitulo">Do primeiro contato ao sorriso de volta, em poucos passos.</p>
+        <span class="rotulo revela">Simples, do começo ao fim</span>
+        <h2 class="titulo revela">Como é o seu <span class="destaque-serif">caminho</span> até o novo sorriso</h2>
         <ol class="passos">
-          <li class="passo revela"><span class="passo__n">1</span><h3>Fale com a gente</h3><p>Chame no WhatsApp e escolha o melhor dia para a sua avaliação.</p></li>
-          <li class="passo revela"><span class="passo__n">2</span><h3>Avaliação</h3><p>Um dentista avaliador entende o seu caso e as suas necessidades.</p></li>
-          <li class="passo revela"><span class="passo__n">3</span><h3>Plano de tratamento</h3><p>Você recebe o tratamento indicado para o seu caso, explicado com clareza.</p></li>
-          <li class="passo revela"><span class="passo__n">4</span><h3>Sorriso de volta</h3><p>Volte a sorrir, falar e comer o que gosta com confiança.</p></li>
+          <li class="passo revela"><span class="passo__n">1</span><span class="passo__ico"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><h3>Você chama no WhatsApp</h3><p>Escolhe o melhor dia e horário para a avaliação.</p></li>
+          <li class="passo revela"><span class="passo__n">2</span><span class="passo__ico"><svg aria-hidden="true"><use href="#i-lupa"/></svg></span><h3>Avaliação completa</h3><p>O dentista examina, tira suas dúvidas e entende o seu caso.</p></li>
+          <li class="passo revela"><span class="passo__n">3</span><span class="passo__ico"><svg aria-hidden="true"><use href="#i-plano"/></svg></span><h3>Plano claro</h3><p>Você conhece cada etapa e o valor antes de começar.</p></li>
+          <li class="passo revela"><span class="passo__n">4</span><span class="passo__ico"><svg aria-hidden="true"><use href="#i-sorriso"/></svg></span><h3>Sorriso de volta</h3><p>Volte a sorrir, falar e comer o que gosta.</p></li>
         </ol>
+        <div class="centro revela">
+          <a class="btn btn--wa btn--lg brilha" data-wa="como-funciona" href="#" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Dar o primeiro passo
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- 5. Localização -->
-    <section class="sec sec--gelo" id="local">
-      <div class="wrap local">
-        <div class="local__texto revela">
-          <h2 class="titulo titulo--esq">Seu Sorriso está aqui! Pertinho de Você</h2>
-          <!-- EDITAR: endereço completo e horário de atendimento -->
-          <p class="local__end">
-            <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-            Sorrifácil Londrina — Londrina, PR
-          </p>
-          <a class="btn btn--cta btn--lg" data-wa="local" href="#" target="_blank" rel="noopener">
+    <!-- ============ OUTROS TRATAMENTOS ============ -->
+    <section class="sec" id="tratamentos">
+      <div class="wrap">
+        <span class="rotulo revela">Tudo em um só lugar</span>
+        <h2 class="titulo revela">Cuidamos do seu sorriso <span class="destaque-serif">por completo</span></h2>
+        <p class="subtitulo revela">Toque em um tratamento para falar com a gente.</p>
+
+        <div class="tratamentos">
+          <a class="trat trat--destaque revela" href="#implantes">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-implante"/></svg></span>
+            <h3>Implantes dentários</h3><p>Nossa especialidade</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-protese" data-msg="Olá! Vim pelo site e quero saber sobre próteses dentárias." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-protocolo"/></svg></span>
+            <h3>Próteses dentárias</h3><p>Fixas e removíveis</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-ortodontia" data-msg="Olá! Vim pelo site e quero saber sobre aparelho ortodôntico." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-aparelho"/></svg></span>
+            <h3>Ortodontia</h3><p>Aparelhos para alinhar os dentes</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-estetica" data-msg="Olá! Vim pelo site e quero saber sobre clareamento e facetas." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-brilho"/></svg></span>
+            <h3>Clareamento e facetas</h3><p>Estética para um sorriso mais bonito</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-urgencia" data-msg="Olá! Vim pelo site e preciso de um atendimento de urgência." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico trat__ico--alerta"><svg aria-hidden="true"><use href="#i-raio"/></svg></span>
+            <h3>Urgência</h3><p>Dor de dente? Fale agora</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-canal" data-msg="Olá! Vim pelo site e quero saber sobre tratamento de canal." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-canal"/></svg></span>
+            <h3>Tratamento de canal</h3><p>Salve o dente e acabe com a dor</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-restauracao" data-msg="Olá! Vim pelo site e quero saber sobre restaurações." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-restauracao"/></svg></span>
+            <h3>Restaurações</h3><p>Dentes recuperados na cor natural</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-limpeza" data-msg="Olá! Vim pelo site e quero agendar uma limpeza." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-escudo"/></svg></span>
+            <h3>Limpeza e prevenção</h3><p>Sorriso saudável por mais tempo</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="trat revela" data-wa="trat-clinica" data-msg="Olá! Vim pelo site e quero agendar uma consulta de clínica geral." href="#" target="_blank" rel="noopener">
+            <span class="trat__ico"><svg aria-hidden="true"><use href="#i-estetoscopio"/></svg></span>
+            <h3>Clínica geral</h3><p>Check-up e cuidado do dia a dia</p>
+            <svg class="trat__seta" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ POR QUE A CENTRAL NORTE ============ -->
+    <section class="sec sec--escura" id="porque">
+      <div class="sec__brilho sec__brilho--esq" aria-hidden="true"></div>
+      <div class="wrap porque">
+        <div class="porque__texto revela">
+          <span class="rotulo rotulo--claro">Por que a Central Norte</span>
+          <h2 class="titulo titulo--claro titulo--esq">Referência em <span class="destaque-serif">implantes</span> em Londrina</h2>
+          <p class="subtitulo subtitulo--claro subtitulo--esq">A gente sabe que decidir por um implante gera dúvidas. Por isso, cada passo é explicado com calma, sem pressa e sem surpresas.</p>
+          <a class="btn btn--wa btn--lg brilha" data-wa="porque" href="#" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar minha avaliação
+          </a>
+        </div>
+        <ul class="diferenciais">
+          <li class="vidro revela"><span class="diferencial__ico"><svg aria-hidden="true"><use href="#i-implante"/></svg></span><div><h3>Foco em implantes</h3><p>Equipe dedicada a devolver dentes fixos.</p></div></li>
+          <li class="vidro revela"><span class="diferencial__ico"><svg aria-hidden="true"><use href="#i-plano"/></svg></span><div><h3>Tudo explicado antes</h3><p>Plano e valores claros antes de começar.</p></div></li>
+          <li class="vidro revela"><span class="diferencial__ico"><svg aria-hidden="true"><use href="#i-coracao"/></svg></span><div><h3>Atendimento acolhedor</h3><p>Sem julgamento, no seu tempo, com conforto.</p></div></li>
+          <!-- EDITAR: condições de pagamento -->
+          <li class="vidro revela"><span class="diferencial__ico"><svg aria-hidden="true"><use href="#i-cartao"/></svg></span><div><h3>Facilidade no pagamento</h3><p>Condições que cabem no seu bolso.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ DÚVIDAS ============ -->
+    <section class="sec" id="duvidas">
+      <div class="wrap wrap--medio">
+        <span class="rotulo revela">Dúvidas frequentes</span>
+        <h2 class="titulo revela">Perguntas que <span class="destaque-serif">todo mundo</span> faz</h2>
+        <!-- EDITAR: revise as respostas com o dentista responsável -->
+        <div class="faq revela">
+          <details>
+            <summary>Tenho mais de 60 anos. Ainda posso fazer implante?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+            <p>Sim, a idade por si só não impede o implante. O que importa é a sua saúde geral e a condição do osso, e isso é avaliado na consulta.</p>
+          </details>
+          <details>
+            <summary>O implante dói?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+            <p>O procedimento é feito com anestesia local, então você fica confortável durante todo o atendimento. Depois, você recebe todas as orientações para uma recuperação tranquila.</p>
+          </details>
+          <details>
+            <summary>Tenho diabetes ou pressão alta. Posso fazer?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+            <p>Em muitos casos, sim, desde que a condição esteja controlada. O dentista avalia o seu histórico e, se precisar, conversa com o seu médico.</p>
+          </details>
+          <details>
+            <summary>Quanto tempo leva para ficar pronto?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+            <p>Depende de cada caso. Na avaliação você recebe o passo a passo do seu tratamento, com os prazos de cada etapa.</p>
+          </details>
+          <details>
+            <summary>Posso parcelar o tratamento?<svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+            <p>Sim. Temos condições facilitadas de pagamento, que são apresentadas junto com o seu plano de tratamento.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL + CONTATO ============ -->
+    <section class="final" id="contato">
+      <div class="final__brilho" aria-hidden="true"></div>
+      <div class="wrap final__grid">
+        <div class="final__texto revela">
+          <h2>Pare de adiar o <span class="destaque-serif">seu sorriso</span>.</h2>
+          <p>Uma conversa no WhatsApp é o primeiro passo para voltar a sorrir e comer o que gosta sem se preocupar.</p>
+          <a class="btn btn--wa btn--xl brilha" data-wa="final" href="#" target="_blank" rel="noopener">
             <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar uma avaliação
           </a>
         </div>
-        <div class="local__fotos revela">
-          <img src="https://onmid.app/wp-content/uploads/2026/04/iScreen-Shoter-Safari-260410183853-1024x656.jpg" alt="Fachada da Sorrifácil Londrina" width="1024" height="656" loading="lazy">
-          <img src="https://onmid.app/wp-content/uploads/2026/04/iScreen-Shoter-Safari-260410183808.jpg" alt="Localização da Sorrifácil Londrina" width="974" height="602" loading="lazy">
+        <div class="contato vidro revela">
+          <img src="assets/img/logo-branca.png" alt="Clínica Dentária Central Norte" width="140" height="139" loading="lazy">
+          <ul>
+            <!-- EDITAR: endereço, horários e telefone -->
+            <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Endereço da clínica<br>Londrina · PR</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><span>Seg a sex, 8h às 18h<br>Sáb, 8h às 12h</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>Atendimento pelo WhatsApp</span></li>
+          </ul>
+          <a class="btn btn--ghost btn--bloco" href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica+Dent%C3%A1ria+Central+Norte+Londrina" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Como chegar
+          </a>
         </div>
-      </div>
-    </section>
-
-    <!-- 6. Equipe -->
-    <section class="sec" id="equipe">
-      <div class="wrap">
-        <h2 class="titulo">Quem vai cuidar do seu sorriso</h2>
-        <p class="subtitulo">Profissionais que entendem a sua necessidade antes de indicar o tratamento.</p>
-
-        <div class="equipe">
-
-          <article class="dentista revela">
-            <img class="dentista__foto" src="https://onmid.app/wp-content/uploads/2026/04/IMG_2336-768x1024.png" alt="Dr. Junior Zanon" width="768" height="1024" loading="lazy">
-            <div class="dentista__info">
-              <h3>Dr. Junior Zanon</h3>
-              <span class="cro">CRO-SP 19864</span>
-              <!-- EDITAR: o texto original cita "Sorrifácil Barretos" -->
-              <p>Especialista da Sorrifácil Barretos, Dr. Junior Zanon valoriza um atendimento próximo, seguro e acolhedor, entendendo as necessidades de cada paciente antes de indicar o melhor tratamento. Com mais de 20 anos de atuação como clínico geral, na gestão de clínicas e em avaliações odontológicas, Edson Antonio Marques Júnior une experiência e cuidado humanizado para transformar sorrisos com confiança.</p>
-              <dl class="atributos">
-                <div><dt>Experiência</dt><dd>Mais de 20 anos atuando como clínico geral, em avaliação e gestão de clínicas odontológicas.</dd></div>
-                <div><dt>Especialidade</dt><dd>Clínico geral, avaliação odontológica e gestão de clínicas.</dd></div>
-                <div><dt>Natural de</dt><dd>Barretos - SP</dd></div>
-                <div><dt>Hobbies</dt><dd>Bom churrasco com a família e amigos, assistir a jogos de futebol.</dd></div>
-                <div><dt>Personalidade</dt><dd>Experiente, acolhedor, seguro, próximo dos pacientes e comprometido com o bem-estar.</dd></div>
-              </dl>
-            </div>
-          </article>
-
-          <article class="dentista revela">
-            <img class="dentista__foto" src="https://onmid.app/wp-content/uploads/2026/04/WhatsApp-Image-2026-08-28-at-10.51.25-768x1024.jpeg" alt="Dr. Denes Gonçalves Damasceno" width="768" height="1024" loading="lazy">
-            <div class="dentista__info">
-              <h3>Dr. Denes</h3>
-              <span class="cro">CRO 30064</span>
-              <p>Diretor Técnico e Dentista Avaliador da Sorrifácil, Dr. Denes Gonçalves Damasceno conduz cada atendimento com escuta atenta e olhar clínico apurado, entendendo a necessidade real de cada paciente antes de indicar o melhor tratamento. À frente da direção técnica e das avaliações odontológicas, une rigor técnico e cuidado humanizado para transformar sorrisos com segurança e confiança.</p>
-              <dl class="atributos">
-                <div><dt>Experiência</dt><dd>Atuação como Diretor Técnico e Dentista Avaliador, à frente da avaliação e da gestão clínica odontológica.</dd></div>
-                <div><dt>Especialidade</dt><dd>Diretor Técnico e Dentista Avaliador.</dd></div>
-                <div><dt>Natural de</dt><dd>Londrina - PR</dd></div>
-                <div><dt>Hobbies</dt><dd>Corrida de rua, mantendo a disciplina e o foco também fora do consultório.</dd></div>
-                <div><dt>Personalidade</dt><dd>Atencioso, criterioso, próximo dos pacientes e comprometido com o bem-estar.</dd></div>
-              </dl>
-            </div>
-          </article>
-
-          <article class="dentista revela">
-            <img class="dentista__foto" src="https://onmid.app/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-01-at-18.27.40-768x1024.jpeg" alt="Dr. Wericon Pedro dos Santos" width="768" height="1024" loading="lazy">
-            <div class="dentista__info">
-              <h3>Dr. Wericon Pedro dos Santos</h3>
-              <span class="cro">CRO-PR 28.385</span>
-              <p>Especialista da Sorrifácil, Dr. Wericon Pedro dos Santos une experiência clínica, conhecimento acadêmico e um atendimento humanizado para cuidar de cada sorriso de forma segura e personalizada. Com atuação em ortodontia, ortopedia dos maxilares, cirurgia e clínica geral, além de ser professor de graduação e pós-graduação, oferece um olhar completo para cada paciente.</p>
-              <dl class="atributos">
-                <div><dt>Experiência</dt><dd>Professor de graduação e pós-graduação, com atuação em ortodontia, ortopedia, cirurgia e clínica geral.</dd></div>
-                <div><dt>Especialidade</dt><dd>Ortodontia e ortopedia dos maxilares.</dd></div>
-                <div><dt>Natural de</dt><dd>Garanhuns - PE</dd></div>
-                <div><dt>Hobbies</dt><dd>Cinema e assistir Grey’s Anatomy.</dd></div>
-                <div><dt>Personalidade</dt><dd>Didático, cuidadoso, experiente, acolhedor e comprometido com cada paciente.</dd></div>
-              </dl>
-            </div>
-          </article>
-
-          <article class="dentista revela">
-            <img class="dentista__foto" src="https://onmid.app/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-11.30.22-709x1024.jpeg" alt="Dra. Isabela Maioli Martins" width="709" height="1024" loading="lazy">
-            <div class="dentista__info">
-              <h3>Dra. Isabela Maioli Martins</h3>
-              <span class="cro">CRO-PR 29391</span>
-              <p>Especialista da Sorrifácil, Dra. Isabela Maioli Martins valoriza um atendimento acolhedor, atento e personalizado, entendendo as necessidades de cada paciente antes de indicar o melhor caminho para o tratamento. Como dentista clínico geral, com atuação na área de avaliação, oferece um cuidado seguro e humanizado para ajudar cada paciente a conquistar mais saúde, confiança e bem-estar.</p>
-              <dl class="atributos">
-                <div><dt>Experiência</dt><dd>Atuação como dentista clínico geral na área de avaliação odontológica.</dd></div>
-                <div><dt>Especialidade</dt><dd>Clínico geral e avaliação odontológica.</dd></div>
-                <div><dt>Natural de</dt><dd>Osvaldo Cruz - SP</dd></div>
-                <div><dt>Personalidade</dt><dd>Acolhedora, atenciosa, cuidadosa e comprometida com o bem-estar dos pacientes.</dd></div>
-              </dl>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Depoimentos em vídeo -->
-    <section class="sec sec--azul" id="depoimentos">
-      <div class="wrap">
-        <h2 class="titulo titulo--claro">A transformação que a Prótese Protocolo trouxe para nossos pacientes!</h2>
-        <div class="depoimentos">
-          <figure class="depo revela">
-            <button class="yt" data-yt="mqbUuO1sahc" aria-label="Assistir depoimento de Maria Aparecida">
-              <img src="https://i.ytimg.com/vi/mqbUuO1sahc/hqdefault.jpg" alt="" loading="lazy">
-              <span class="yt__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
-            </button>
-            <figcaption>
-              <strong>Maria Aparecida</strong>
-              <q>Eu sempre escondia meu sorriso por vergonha, e agora eu estou tão feliz de poder sorrir.</q>
-            </figcaption>
-          </figure>
-          <figure class="depo revela">
-            <button class="yt" data-yt="UW-EUUGSC9E" aria-label="Assistir depoimento de Cristiane">
-              <img src="https://i.ytimg.com/vi/UW-EUUGSC9E/hqdefault.jpg" alt="" loading="lazy">
-              <span class="yt__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
-            </button>
-            <figcaption>
-              <strong>Cristiane</strong>
-              <q>Eu posso dizer que agora eu voltei a viver, porque posso comer tudo o que gosto sem preocupação.</q>
-            </figcaption>
-          </figure>
-          <figure class="depo revela">
-            <!-- EDITAR: este vídeo é o mesmo do depoimento em destaque (FhDn6c_xokM) -->
-            <button class="yt" data-yt="FhDn6c_xokM" aria-label="Assistir depoimento de Lurdes da Silva">
-              <img src="https://i.ytimg.com/vi/FhDn6c_xokM/hqdefault.jpg" alt="" loading="lazy">
-              <span class="yt__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
-            </button>
-            <figcaption>
-              <strong>Lurdes da Silva</strong>
-              <q>Se eu soubesse que era tão simples ter meu sorriso de volta eu teria feito há muito tempo.</q>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Dúvidas -->
-    <section class="sec" id="duvidas">
-      <div class="wrap wrap--estreito">
-        <h2 class="titulo">Dúvidas frequentes</h2>
-        <!-- EDITAR: revise as respostas com a clínica -->
-        <div class="faq">
-          <details>
-            <summary>A avaliação é feita com dentista?</summary>
-            <p>Sim. A avaliação é feita por um dentista avaliador, que entende o seu caso e indica o tratamento mais adequado para você.</p>
-          </details>
-          <details>
-            <summary>Uso dentadura. Posso trocar por implantes?</summary>
-            <p>Em muitos casos, sim. A Prótese Protocolo é uma das soluções para quem quer deixar a dentadura ou a ponte móvel. Na avaliação o dentista confirma o que é indicado para você.</p>
-          </details>
-          <details>
-            <summary>Em quanto tempo volto a sorrir?</summary>
-            <p>Dependendo do caso, o sorriso pode ser devolvido em 7 dias. O prazo exato é definido na avaliação.</p>
-          </details>
-          <details>
-            <summary>Como faço para agendar?</summary>
-            <p>É só tocar em qualquer botão de agendamento desta página ou preencher o formulário. Você fala direto com a nossa equipe pelo WhatsApp.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. Chamada final -->
-    <section class="sec sec--final" id="final">
-      <div class="wrap centro">
-        <h2>Pare de adiar a transformação do seu sorriso!</h2>
-        <p>Faça como centenas de brasileiros que tiveram seus sorrisos devolvidos em poucos dias.</p>
-        <a class="btn btn--cta btn--lg" data-wa="final" href="#" target="_blank" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Quero voltar a sorrir
-        </a>
       </div>
     </section>
 
@@ -361,36 +391,57 @@
 
   <footer class="rodape">
     <div class="wrap rodape__in">
-      <img src="https://onmid.app/wp-content/uploads/2024/10/logo-azul-e1775856053998.png" alt="Sorrifácil" width="148" height="31" loading="lazy">
+      <p><strong>Clínica Dentária Central Norte</strong> · Londrina, PR</p>
       <!-- EDITAR: CNPJ e responsável técnico com CRO (exigência do CFO) -->
-      <p>Sorrifácil Londrina · Londrina, PR<br>Responsável técnico: Dr. Denes Gonçalves Damasceno · CRO 30064</p>
-      <p class="rodape__copy">© <span id="ano">2026</span> Sorrifácil Londrina. Todos os direitos reservados.</p>
+      <p>Responsável técnico: Nome do dentista · CRO-PR 00000 · CNPJ 00.000.000/0001-00</p>
+      <p class="rodape__copy">© <span id="ano">2026</span> Clínica Dentária Central Norte</p>
     </div>
   </footer>
 
-  <!-- Botão flutuante e barra do celular -->
+  <!-- WhatsApp flutuante (computador) e barra fixa (celular) -->
   <a class="wa-flutuante" data-wa="flutuante" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <svg aria-hidden="true"><use href="#i-wa"/></svg>
+    <span class="wa-flutuante__balao">Agende sua avaliação</span>
   </a>
-  <div class="barra-cel">
-    <a class="btn btn--cta btn--bloco" data-wa="barra-celular" href="#" target="_blank" rel="noopener">
-      <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar avaliação
+  <div class="barra-cel" id="barra-cel">
+    <a class="btn btn--wa btn--bloco brilha" data-wa="barra-celular" href="#" target="_blank" rel="noopener">
+      <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Agendar avaliação pelo WhatsApp
     </a>
   </div>
 
-  <!-- Ícones -->
+  <!-- ============ ÍCONES ============ -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
-    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></symbol>
-    <symbol id="i-aspas" viewBox="0 0 24 24"><path fill="currentColor" d="M10 7H6a2 2 0 0 0-2 2v4h4v4H6v1a3 3 0 0 0 3-3V7Zm10 0h-4a2 2 0 0 0-2 2v4h4v4h-2v1a3 3 0 0 0 3-3V7Z"/></symbol>
-    <symbol id="i-sorriso" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 14.5a5 5 0 0 0 8 0"/><path d="M9 9.5h.01M15 9.5h.01" stroke-width="2.6"/></g></symbol>
-    <symbol id="i-fala" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5" stroke-linecap="round"/></g></symbol>
-    <symbol id="i-dente" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7.5 3C5 3 3.5 5 3.5 7.5c0 2.6 1.3 4 2 6 .8 2.4 1 7.5 3 7.5 1.8 0 1.6-5 3.5-5s1.7 5 3.5 5c2 0 2.2-5.1 3-7.5.7-2 2-3.4 2-6C20.5 5 19 3 16.5 3c-1.9 0-3 1-4.5 1S9.4 3 7.5 3Z"/></symbol>
-    <symbol id="i-relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M9 14.5l2 2 4-4"/></g></symbol>
-    <symbol id="i-prato" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="13" cy="13" r="7"/><circle cx="13" cy="13" r="3.5"/><path d="M3 3v6a2 2 0 0 0 2 2v10M5 3v5"/></g></symbol>
+    <defs>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-mais" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-seta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+      <symbol id="i-seta-baixo" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-5-5 5 5 5-5"/></symbol>
+      <symbol id="i-estrela" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
+      <symbol id="i-relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+      <symbol id="i-dente" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7.5 3C5 3 3.5 5 3.5 7.5c0 2.6 1.3 4 2 6 .8 2.4 1 7.5 3 7.5 1.8 0 1.6-5 3.5-5s1.7 5 3.5 5c2 0 2.2-5.1 3-7.5.7-2 2-3.4 2-6C20.5 5 19 3 16.5 3c-1.9 0-3 1-4.5 1S9.4 3 7.5 3Z"/></symbol>
+      <symbol id="i-implante" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5c-1.8 0-3 1.3-3 3.2 0 1.7.9 2.6 1.4 3.3h13.2c.5-.7 1.4-1.6 1.4-3.3 0-1.9-1.2-3.2-3-3.2-1.5 0-2.4.8-5 .8s-3.5-.8-5-.8Z"/><path d="M9 10v2h6v-2M9.5 13.5h5M10 16h4M10.5 18.5h3M11 21h2"/></g></symbol>
+      <symbol id="i-protocolo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c3-3 15-3 18 0-1 3-4 5-9 5S4 12 3 9Z"/><path d="M7.5 8.2v3M10.5 7.8v4.6M13.5 7.8v4.6M16.5 8.2v3"/><path d="M8 14v4M16 14v4"/></g></symbol>
+      <symbol id="i-dentadura" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10c0-3 4-5 9-5s9 2 9 5c0 4-4 8-9 8s-9-4-9-8Z"/><path d="M7 10.5h10M8.5 8v5M12 7.5v5.5M15.5 8v5"/></g></symbol>
+      <symbol id="i-ponte" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18"/><path d="M5 9c0 4 1 9 2.5 9S9 14 9 12M15 12c0 2 .5 6 1.5 6S19 13 19 9"/><path d="M9 9v3h6V9"/></g></symbol>
+      <symbol id="i-sorriso" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 14.5a5 5 0 0 0 8 0"/><path d="M9 9.5h.01M15 9.5h.01" stroke-width="2.6"/></g></symbol>
+      <symbol id="i-prato" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="13.5" cy="12" r="7"/><circle cx="13.5" cy="12" r="3.5"/><path d="M3 3v6a2 2 0 0 0 2 2v10M5 3v5"/></g></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></g></symbol>
+      <symbol id="i-coracao" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 20s-8-4.6-8-10.5A4.5 4.5 0 0 1 12 6.8a4.5 4.5 0 0 1 8 2.7C20 15.4 12 20 12 20Z"/></symbol>
+      <symbol id="i-fala" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/></g></symbol>
+      <symbol id="i-lupa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></g></symbol>
+      <symbol id="i-plano" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10l1.5 1.5 3-3M8.5 16h7"/></g></symbol>
+      <symbol id="i-aparelho" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><rect x="4.5" y="9.5" width="3" height="5" rx=".8"/><rect x="10.5" y="9.5" width="3" height="5" rx=".8"/><rect x="16.5" y="9.5" width="3" height="5" rx=".8"/></g></symbol>
+      <symbol id="i-brilho" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M10 3.5 11.8 9 17 10.8 11.8 12.6 10 18l-1.8-5.4L3 10.8 8.2 9z"/><path d="M18 3v4M16 5h4M18.5 16v3M17 17.5h3" stroke-linecap="round"/></g></symbol>
+      <symbol id="i-raio" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></symbol>
+      <symbol id="i-canal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M7.5 3C5 3 3.5 5 3.5 7.5c0 2.6 1.3 4 2 6 .8 2.4 1 7.5 3 7.5 1.8 0 1.6-5 3.5-5s1.7 5 3.5 5c2 0 2.2-5.1 3-7.5.7-2 2-3.4 2-6C20.5 5 19 3 16.5 3c-1.9 0-3 1-4.5 1S9.4 3 7.5 3Z"/><path d="M10 8v5M14 8v5"/></g></symbol>
+      <symbol id="i-restauracao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7.5 3C5 3 3.5 5 3.5 7.5c0 2.6 1.3 4 2 6 .8 2.4 1 7.5 3 7.5 1.8 0 1.6-5 3.5-5s1.7 5 3.5 5c2 0 2.2-5.1 3-7.5.7-2 2-3.4 2-6C20.5 5 19 3 16.5 3c-1.9 0-3 1-4.5 1S9.4 3 7.5 3Z"/><path d="M9.5 7.5h5v3h-5z" fill="currentColor" fill-opacity=".35"/></g></symbol>
+      <symbol id="i-escudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 5 6v5.5c0 4.2 3 7.8 7 9.5 4-1.7 7-5.3 7-9.5V6z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+      <symbol id="i-estetoscopio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></g></symbol>
+      <symbol id="i-cartao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></g></symbol>
+    </defs>
   </svg>
 
   <script src="assets/js/main.js"></script>
