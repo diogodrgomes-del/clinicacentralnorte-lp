@@ -6,133 +6,139 @@
 const CONFIG = {
   // EDITAR: número do WhatsApp com DDI + DDD, só dígitos. Ex.: 5543999999999
   whatsapp: '5543000000000',
-  // Mensagem padrão dos botões (cada tratamento tem a sua no data-msg do HTML)
-  mensagem: 'Olá! Vim pelo site e quero agendar uma avaliação na Clínica Dentária Central Norte.'
+  mensagem: 'Olá! Vim pelo site e quero agendar uma avaliação na Clínica Dentária Central Norte.',
+  // Velocidade da faixa da equipe (pixels por segundo)
+  velocidadeEquipe: 32
 };
 
 const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-function linkWhatsApp(texto) {
-  return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(texto);
-}
+const linkWhatsApp = (texto) => 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(texto);
 
 function registrar(evento, dados) {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(Object.assign({ event: evento }, dados));
+  (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: evento }, dados));
 }
 
 // Botões de WhatsApp ----------------------------------------------------------
-document.querySelectorAll('[data-wa]').forEach((botao) => {
+$$('[data-wa]').forEach((botao) => {
   botao.href = linkWhatsApp(botao.dataset.msg || CONFIG.mensagem);
   botao.addEventListener('click', () => registrar('whatsapp_click', { origem: botao.dataset.wa }));
 });
 
-// "Você se identifica?" -------------------------------------------------------
-const dores = [...document.querySelectorAll('.dor')];
-const resultado = document.getElementById('resultado');
-const resultadoTitulo = document.getElementById('resultado-titulo');
-const resultadoBarra = document.getElementById('resultado-barra');
-const resultadoBtn = document.getElementById('resultado-btn');
+// 01 · "Isso acontece com você?" ---------------------------------------------
+const dores = $$('.dor');
+const resultado = $('#resultado');
+const resultadoN = $('#resultado-n');
+const resultadoTitulo = $('#resultado-titulo');
+const resultadoBtn = $('#resultado-btn');
+const frases = ['', 'Isso tem solução.', 'Dá para resolver.', 'Você não precisa conviver com isso.', 'Está na hora de mudar.', 'Seu sorriso pode voltar.', 'Vamos resolver tudo isso.'];
 
 dores.forEach((dor) => {
   dor.addEventListener('click', () => {
     dor.setAttribute('aria-pressed', dor.getAttribute('aria-pressed') !== 'true');
+    if (navigator.vibrate) navigator.vibrate(12);
     const marcadas = dores.filter((d) => d.getAttribute('aria-pressed') === 'true');
     const total = marcadas.length;
 
     resultado.hidden = total === 0;
     if (!total) return;
 
-    resultadoTitulo.textContent = total === 1
-      ? 'Você marcou 1 situação.'
-      : 'Você marcou ' + total + ' situações.';
-    requestAnimationFrame(() => { resultadoBarra.style.width = (total / dores.length * 100) + '%'; });
-
-    const lista = marcadas.map((d) => '• ' + d.textContent.trim()).join('\n');
+    resultadoN.textContent = total;
+    resultadoN.classList.remove('pula'); void resultadoN.offsetWidth; resultadoN.classList.add('pula');
+    resultadoTitulo.textContent = frases[total];
     resultadoBtn.href = linkWhatsApp(
-      'Olá! Vim pelo site e me identifiquei com:\n' + lista + '\n\nQuero agendar uma avaliação.'
+      'Olá! Vim pelo site e me identifiquei com:\n' +
+      marcadas.map((d) => '• ' + d.textContent.trim()).join('\n') +
+      '\n\nQuero agendar uma avaliação.'
     );
   });
 });
 
-// Contadores ------------------------------------------------------------------
-function contar(el) {
-  const alvo = parseFloat(el.dataset.conta);
-  const casas = parseInt(el.dataset.casas || '0', 10);
-  const formata = (v) => v.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas });
-  if (reduzMovimento) { el.textContent = formata(alvo); return; }
-  const inicio = performance.now();
-  const duracao = 1600;
-  (function passo(agora) {
-    const t = Math.min((agora - inicio) / duracao, 1);
-    const suave = 1 - Math.pow(1 - t, 3);
-    el.textContent = formata(alvo * suave);
-    if (t < 1) requestAnimationFrame(passo);
-  })(inicio);
+// 02 · Dentadura × Protocolo -------------------------------------------------
+const troca = $('#troca');
+let trocaTocada = false;
+function mudarModo(modo) {
+  troca.classList.toggle('depois', modo === 'depois');
+  $$('[data-modo]', troca).forEach((b) => b.tagName === 'BUTTON' && b.setAttribute('aria-selected', b.dataset.modo === modo));
+}
+$$('button[data-modo]', troca).forEach((b) => b.addEventListener('click', () => { trocaTocada = true; mudarModo(b.dataset.modo); }));
+// Vira sozinho para "Com protocolo" quando aparece na tela, se a pessoa ainda não tocou
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver((itens, obs) => {
+    if (itens[0].isIntersecting) {
+      setTimeout(() => { if (!trocaTocada) mudarModo('depois'); }, 1400);
+      obs.disconnect();
+    }
+  }, { threshold: .6 }).observe(troca);
 }
 
-// Revelar ao rolar (com efeito cascata) e disparar os contadores ---------------
-document.querySelectorAll('.dores, .solucoes, .beneficios, .passos, .tratamentos, .diferenciais, .numeros__grid').forEach((grupo) => {
-  [...grupo.children].forEach((filho, i) => filho.style.setProperty('--atraso', (i * 0.08) + 's'));
-});
+// 03 · Equipe: faixa contínua ------------------------------------------------
+const faixa = $('#equipe-faixa');
+const trilho = $('#equipe-trilho');
+if (!reduzMovimento) {
+  $$('.doutor', trilho).forEach((card) => {
+    const copia = card.cloneNode(true);
+    copia.setAttribute('aria-hidden', 'true');
+    trilho.appendChild(copia);
+  });
+  const ajustarVelocidade = () => {
+    trilho.style.setProperty('--duracao', (trilho.scrollWidth / 2 / CONFIG.velocidadeEquipe) + 's');
+  };
+  ajustarVelocidade();
+  addEventListener('resize', ajustarVelocidade);
 
+  // No celular, segurar o dedo pausa; solta e volta a andar
+  let retomar;
+  faixa.addEventListener('touchstart', () => { clearTimeout(retomar); faixa.classList.add('pausado'); }, { passive: true });
+  faixa.addEventListener('touchend', () => { retomar = setTimeout(() => faixa.classList.remove('pausado'), 1800); }, { passive: true });
+}
+
+// Revelar ao rolar (em cascata) ----------------------------------------------
+$$('.dores, .solucoes, .tratamentos').forEach((grupo) => {
+  [...grupo.children].forEach((filho, i) => filho.style.setProperty('--atraso', (i * 0.07) + 's'));
+});
 if ('IntersectionObserver' in window) {
   const obs = new IntersectionObserver((itens) => {
     itens.forEach((item) => {
       if (!item.isIntersecting) return;
       item.target.classList.add('visto');
-      item.target.querySelectorAll('[data-conta]').forEach(contar);
       obs.unobserve(item.target);
     });
   }, { rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.revela').forEach((el) => obs.observe(el));
+  $$('.revela').forEach((el) => obs.observe(el));
 } else {
-  document.querySelectorAll('.revela').forEach((el) => el.classList.add('visto'));
-  document.querySelectorAll('[data-conta]').forEach(contar);
+  $$('.revela').forEach((el) => el.classList.add('visto'));
 }
 
-// Brilho que segue o mouse nos cartões ---------------------------------------
-document.querySelectorAll('.cartao').forEach((cartao) => {
-  cartao.addEventListener('pointermove', (e) => {
-    const r = cartao.getBoundingClientRect();
-    cartao.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    cartao.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  });
-});
-
-// Cabeçalho, barra de progresso e barra fixa do celular -----------------------
-const topo = document.getElementById('topo');
-const progresso = document.getElementById('progresso');
-const barraCel = document.getElementById('barra-cel');
-const flutuante = document.querySelector('.wa-flutuante');
-const hero = document.getElementById('inicio');
+// Cabeçalho, progresso e barra do celular -------------------------------------
+const topo = $('#topo');
+const progresso = $('#progresso');
+const barraCel = $('#barra-cel');
+const hero = $('#inicio');
 let agendado = false;
-
 function aoRolar() {
   agendado = false;
   const y = scrollY;
   const max = document.documentElement.scrollHeight - innerHeight;
   topo.classList.toggle('rolou', y > 20);
   progresso.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
-  const passouHero = hero.getBoundingClientRect().bottom < innerHeight * 0.35;
-  barraCel.classList.toggle('visivel', passouHero);
+  barraCel.classList.toggle('visivel', hero.getBoundingClientRect().bottom < innerHeight * 0.4);
 }
-addEventListener('scroll', () => {
-  if (!agendado) { agendado = true; requestAnimationFrame(aoRolar); }
-}, { passive: true });
+addEventListener('scroll', () => { if (!agendado) { agendado = true; requestAnimationFrame(aoRolar); } }, { passive: true });
 aoRolar();
 
-// Balão do WhatsApp aparece sozinho uma vez, depois de alguns segundos
+// Balão do WhatsApp aparece uma vez
+const flutuante = $('.wa-flutuante');
 setTimeout(() => {
   flutuante.classList.add('mostra');
   setTimeout(() => flutuante.classList.remove('mostra'), 5000);
-}, 6000);
+}, 7000);
 
-// FAQ: abre um de cada vez
-document.querySelectorAll('.faq details').forEach((item, _, todos) => {
-  item.addEventListener('toggle', () => {
-    if (item.open) todos.forEach((outro) => { if (outro !== item) outro.open = false; });
-  });
+// FAQ: um aberto por vez
+$$('.faq details').forEach((item, _, todos) => {
+  item.addEventListener('toggle', () => { if (item.open) todos.forEach((o) => o !== item && (o.open = false)); });
 });
 
-document.getElementById('ano').textContent = new Date().getFullYear();
+$('#ano').textContent = new Date().getFullYear();
