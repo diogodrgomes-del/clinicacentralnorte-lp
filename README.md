@@ -14,12 +14,12 @@ assets/img/             logo (original, branca e ícone) e foto do hero
 ## Seções
 
 1. Hero com promessa, CTA de WhatsApp e foto
-3. Faixa em movimento com os benefícios
-4. 01 · "Isso acontece com você?" — a pessoa marca as situações e o botão abre o WhatsApp com elas escritas
-5. 02 · Implante × Prótese protocolo + comparativo interativo dentadura × protocolo
-6. 03 · Equipe — faixa contínua com 9 dentistas (pausa ao passar o mouse ou tocar)
-7. 04 · Outros tratamentos (cada cartão abre o WhatsApp com a mensagem daquele tratamento)
-8. 05 · Dúvidas rápidas
+3. 01 · Antes e depois — comparação arrastável (protocolo e implante unitário)
+4. 02 · "Isso acontece com você?" — a pessoa marca as situações e o botão abre o WhatsApp com elas escritas
+5. 03 · Implante × Prótese protocolo + comparativo interativo dentadura × protocolo
+6. 04 · Equipe — faixa contínua com 9 dentistas (pausa ao passar o mouse ou tocar)
+7. 05 · Outros tratamentos (cada cartão abre o WhatsApp com a mensagem daquele tratamento)
+8. 06 · Dúvidas rápidas
 9. Chamada final + contato
 10. Botão flutuante (computador) e barra fixa (celular)
 
@@ -31,8 +31,10 @@ assets/img/             logo (original, branca e ícone) e foto do hero
   condições de pagamento, respostas do FAQ, domínio e rastreamento.
 - **Equipe:** fotos em `assets/img/dentista-1.webp` … `dentista-9.webp` (descomente a `<img>` de cada cartão),
   nomes, especialidades e CRO.
-- **Foto do hero (`assets/img/casal.webp`):** foi recortada do banner de referência.
-  Troque por uma foto própria ou de banco de imagens licenciado.
+- **Antes e depois:** hoje usa uma ilustração em SVG. Troque por fotos reais de pacientes,
+  com autorização por escrito e seguindo as normas de publicidade do CFO
+  (coloque um `<img>` dentro de `.ad__antes` e `.ad__depois`).
+- **Foto do hero (`assets/img/casal.webp` e `casal-560.webp`):** confirme que tem licença de uso.
 
 ## Conversões
 

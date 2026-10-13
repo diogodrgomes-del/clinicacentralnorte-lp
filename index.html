@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=DM+Serif+Display:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/img/casal.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/casal.webp" imagesrcset="assets/img/casal-560.webp 560w, assets/img/casal.webp 900w" imagesizes="(min-width: 1000px) 560px, 100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/main.js" defer></script>
 
@@ -46,6 +46,7 @@
         <span class="marca__txt"><small>Clínica Dentária</small><strong>CENTRAL <em>Norte</em></strong></span>
       </a>
       <nav class="menu" aria-label="Principal">
+        <a href="#antes-depois">Antes e depois</a>
         <a href="#implantes">Implantes</a>
         <a href="#equipe">Equipe</a>
         <a href="#tratamentos">Tratamentos</a>
@@ -61,8 +62,7 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="inicio">
-      <div class="hero__luz hero__luz--1" aria-hidden="true"></div>
-      <div class="hero__luz hero__luz--2" aria-hidden="true"></div>
+      <div class="hero__luz" aria-hidden="true"></div>
 
       <div class="wrap hero__grid">
         <div class="hero__texto">
@@ -81,29 +81,59 @@
         </div>
 
         <div class="hero__foto entra" style="--d:2">
-          <div class="hero__aro" aria-hidden="true"></div>
-          <img src="assets/img/casal.webp" alt="Casal de meia-idade sorrindo com dentes bonitos" width="980" height="656" fetchpriority="high" decoding="async">
-          <div class="selo-giro" aria-hidden="true">
-            <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#circ">REFERÊNCIA EM IMPLANTES · LONDRINA · </textPath></text></svg>
-            <span><svg><use href="#i-implante"/></svg></span>
+          <img src="assets/img/casal.webp" srcset="assets/img/casal-560.webp 560w, assets/img/casal.webp 900w" sizes="(min-width: 1000px) 560px, 100vw" alt="Casal sorrindo com dentes bonitos e saudáveis" width="900" height="889" fetchpriority="high" decoding="async">
+          <div class="hero__selo">
+            <span class="hero__selo-ico"><svg aria-hidden="true"><use href="#i-implante"/></svg></span>
+            <span><strong>Referência em implantes</strong><small>Londrina · PR</small></span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== FAIXA EM MOVIMENTO ===================== -->
-    <div class="faixa" aria-hidden="true">
-      <div class="faixa__trilho">
-        <span>Coma o que gosta</span><i></i><span>Sorria sem medo</span><i></i><span>Dentes fixos</span><i></i><span>Adeus dentadura</span><i></i><span>Implantes em Londrina</span><i></i>
-        <span>Coma o que gosta</span><i></i><span>Sorria sem medo</span><i></i><span>Dentes fixos</span><i></i><span>Adeus dentadura</span><i></i><span>Implantes em Londrina</span><i></i>
-      </div>
-    </div>
-
-    <!-- ===================== 01 · VOCÊ SE IDENTIFICA ===================== -->
-    <section class="sec" id="identifica">
+    <!-- ===================== 01 · ANTES E DEPOIS ===================== -->
+    <section class="sec" id="antes-depois">
       <div class="wrap wrap--medio">
         <header class="cab revela">
           <span class="cab__n">01</span>
+          <h2>Veja a <span class="serif">diferença</span></h2>
+          <p>Arraste a linha para comparar o antes e o depois.</p>
+        </header>
+
+        <div class="ad-abas revela" role="tablist" aria-label="Tipo de tratamento">
+          <button role="tab" aria-selected="true" data-caso="protocolo">Prótese protocolo</button>
+          <button role="tab" aria-selected="false" data-caso="implante">Implante unitário</button>
+        </div>
+
+        <!-- EDITAR: troque as ilustrações por fotos reais de pacientes (com autorização por escrito e seguindo as normas do CFO).
+             Basta colocar <img> dentro de .ad__antes e .ad__depois. -->
+        <div class="ad revela" id="ad" style="--pos:50%">
+          <div class="ad__img ad__antes" id="ad-antes"></div>
+          <div class="ad__img ad__depois" id="ad-depois"></div>
+          <span class="ad__rot ad__rot--antes">Antes</span>
+          <span class="ad__rot ad__rot--depois">Depois</span>
+          <div class="ad__alca" aria-hidden="true"><span><svg><use href="#i-arrastar"/></svg></span></div>
+          <input class="ad__range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+        <p class="ad__nota">Imagem ilustrativa. O resultado depende de cada caso.</p>
+
+        <ul class="ad__ganhos revela">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Dentes fixos</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Mastigação firme</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sorriso natural</li>
+        </ul>
+        <div class="centro revela">
+          <a class="btn btn--wa btn--lg brilha" data-wa="antes-depois" data-msg="Olá! Vi o antes e depois no site e quero agendar uma avaliação." href="#" target="_blank" rel="noopener">
+            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Quero esse resultado
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 02 · VOCÊ SE IDENTIFICA ===================== -->
+    <section class="sec" id="identifica">
+      <div class="wrap wrap--medio">
+        <header class="cab revela">
+          <span class="cab__n">02</span>
           <h2>Isso acontece <span class="serif">com você?</span></h2>
           <p>Toque em tudo o que você sente hoje.</p>
         </header>
@@ -132,12 +162,12 @@
       </div>
     </section>
 
-    <!-- ===================== 02 · IMPLANTES ===================== -->
+    <!-- ===================== 03 · IMPLANTES ===================== -->
     <section class="sec sec--escura" id="implantes">
       <div class="sec__luz" aria-hidden="true"></div>
       <div class="wrap">
         <header class="cab cab--claro revela">
-          <span class="cab__n">02</span>
+          <span class="cab__n">03</span>
           <h2>Dentes fixos de <span class="serif">novo</span></h2>
           <p>Dois caminhos. Na avaliação, a gente indica o seu.</p>
         </header>
@@ -188,11 +218,11 @@
       </div>
     </section>
 
-    <!-- ===================== 03 · EQUIPE (FAIXA CONTÍNUA) ===================== -->
+    <!-- ===================== 04 · EQUIPE (FAIXA CONTÍNUA) ===================== -->
     <section class="sec sec--equipe" id="equipe">
       <div class="wrap">
         <header class="cab revela">
-          <span class="cab__n">03</span>
+          <span class="cab__n">04</span>
           <h2>Nossa <span class="serif">equipe</span></h2>
           <p>9 especialistas em um só lugar. Cada etapa do seu tratamento com quem mais entende dela.</p>
         </header>
@@ -290,11 +320,11 @@
       </div>
     </section>
 
-    <!-- ===================== 04 · TRATAMENTOS ===================== -->
+    <!-- ===================== 05 · TRATAMENTOS ===================== -->
     <section class="sec sec--gelo" id="tratamentos">
       <div class="wrap">
         <header class="cab revela">
-          <span class="cab__n">04</span>
+          <span class="cab__n">05</span>
           <h2>E também cuidamos <span class="serif">de tudo</span></h2>
           <p>Toque e fale com a gente sobre o tratamento.</p>
         </header>
@@ -313,11 +343,11 @@
       </div>
     </section>
 
-    <!-- ===================== 05 · DÚVIDAS ===================== -->
+    <!-- ===================== 06 · DÚVIDAS ===================== -->
     <section class="sec" id="duvidas">
       <div class="wrap wrap--medio">
         <header class="cab revela">
-          <span class="cab__n">05</span>
+          <span class="cab__n">06</span>
           <h2>Dúvidas <span class="serif">rápidas</span></h2>
         </header>
         <!-- EDITAR: revise as respostas com o dentista responsável -->
@@ -423,6 +453,7 @@
       <symbol id="i-escudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 5 6v5.5c0 4.2 3 7.8 7 9.5 4-1.7 7-5.3 7-9.5V6z"/><path d="m9 12 2 2 4-4"/></g></symbol>
       <symbol id="i-estetoscopio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></g></symbol>
       <symbol id="i-pessoa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12.5a4.75 4.75 0 1 0 0-9.5 4.75 4.75 0 0 0 0 9.5Zm0 2c-4.6 0-8.5 2.6-8.5 6V22h17v-1.5c0-3.4-3.9-6-8.5-6Z"/></symbol>
+      <symbol id="i-arrastar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m9 7-5 5 5 5M15 7l5 5-5 5"/></symbol>
       <symbol id="i-cartao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></g></symbol>
     </defs>
   </svg>
