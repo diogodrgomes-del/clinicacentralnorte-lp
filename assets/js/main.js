@@ -33,14 +33,29 @@ let arrastando = false;
 function posicionar(pct) {
   pct = Math.max(0, Math.min(100, pct));
   ad.style.setProperty('--pos', pct + '%');
+  ad.classList.toggle('so-antes', pct >= 99);
+  ad.classList.toggle('so-depois', pct <= 1);
   adRange.value = Math.round(pct);
 }
 const pctDoEvento = (e) => { const r = ad.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; };
-ad.addEventListener('pointerdown', (e) => { arrastando = true; ad.setPointerCapture(e.pointerId); posicionar(pctDoEvento(e)); });
+ad.addEventListener('pointerdown', (e) => { arrastando = true; ad.classList.add('arrastando', 'usado'); ad.setPointerCapture(e.pointerId); posicionar(pctDoEvento(e)); marcarBotao(null); });
 ad.addEventListener('pointermove', (e) => { if (arrastando) posicionar(pctDoEvento(e)); });
-ad.addEventListener('pointerup', () => { arrastando = false; registrar('antes_depois', {}); });
-ad.addEventListener('pointercancel', () => { arrastando = false; });
-adRange.addEventListener('input', () => posicionar(+adRange.value));
+const soltar = () => { if (!arrastando) return; arrastando = false; ad.classList.remove('arrastando'); registrar('antes_depois', { modo: 'arrastar' }); };
+ad.addEventListener('pointerup', soltar);
+ad.addEventListener('pointercancel', soltar);
+
+// Botões "Ver antes / Comparar / Ver depois" — mais fácil que arrastar para muita gente
+const botoesAd = $$('.ad__botoes button');
+function marcarBotao(alvo) { botoesAd.forEach((b) => b.setAttribute('aria-pressed', b === alvo)); }
+botoesAd.forEach((b) => b.addEventListener('click', () => {
+  arrastando = false;
+  ad.classList.add('usado');
+  marcarBotao(b);
+  posicionar(+b.dataset.ir);
+  registrar('antes_depois', { modo: b.textContent.trim() });
+}));
+adRange.addEventListener('input', () => { ad.classList.add('usado', 'arrastando'); posicionar(+adRange.value); });
+adRange.addEventListener('change', () => ad.classList.remove('arrastando'));
 
 // Uma passada curta da linha quando aparece, para mostrar que dá para arrastar
 if ('IntersectionObserver' in window && !reduzMovimento) {
@@ -49,8 +64,9 @@ if ('IntersectionObserver' in window && !reduzMovimento) {
     obs.disconnect();
     const quadros = [[0, 50], [650, 25], [1400, 75], [2100, 50]];
     const inicio = performance.now();
+    ad.classList.add('arrastando');
     (function animar(agora) {
-      if (arrastando) return;
+      if (arrastando || ad.classList.contains('usado')) { ad.classList.remove('arrastando'); return; }
       const t = agora - inicio;
       let i = 0;
       while (i < quadros.length - 2 && t > quadros[i + 1][0]) i++;
@@ -58,9 +74,13 @@ if ('IntersectionObserver' in window && !reduzMovimento) {
       const k = Math.min(1, (t - t0) / (t1 - t0));
       posicionar(p0 + (p1 - p0) * (1 - Math.cos(k * Math.PI)) / 2);
       if (t < quadros[quadros.length - 1][0]) requestAnimationFrame(animar);
+      else ad.classList.remove('arrastando');
     })(inicio);
   }, { threshold: .6 }).observe(ad);
 }
+
+// Cliques no mapa
+$$('[data-evento="mapa"], .local__foto').forEach((a) => a.addEventListener('click', () => registrar('mapa_click', {})));
 
 // "Alguma dessas situações faz parte do seu dia?" -----------------------------
 const dores = $$('.dor');

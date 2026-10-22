@@ -103,12 +103,6 @@ button { font: inherit; }
 .hero__provas { display: grid; gap: 8px; font-size: .95rem; color: var(--texto); }
 .hero__provas li { display: flex; align-items: center; gap: .55em; }
 .hero__provas .ico { color: var(--verde); }
-.hero__foto {
-  position: relative; margin: 0 -20px; padding-top: 24px;
-  background: radial-gradient(ellipse 60% 70% at 50% 100%, var(--navy-2) 0%, var(--navy) 70%);
-  border-radius: 28px 28px 0 0;
-}
-.hero__foto img { width: 92%; max-width: 520px; margin: 0 auto; }
 
 /* Credenciais ------------------------------------------------------------- */
 .credenciais { background: var(--navy); color: #fff; }
@@ -307,8 +301,6 @@ button { font: inherit; }
   .hero { padding-top: 0; }
   .hero__grid { grid-template-columns: 1.05fr .95fr; align-items: end; gap: 48px; }
   .hero__texto { padding: 70px 0 80px; }
-  .hero__foto { margin: 40px 0 0; border-radius: 28px 28px 0 0; padding-top: 40px; }
-  .hero__foto img { width: 100%; }
   .cab { margin-bottom: 44px; }
   .tratamentos { grid-template-columns: repeat(3, 1fr); }
   .final { padding: 96px 0; }
@@ -316,6 +308,151 @@ button { font: inherit; }
   .wa-flutuante { display: grid; }
   .barra-cel { display: none; }
   .rodape { padding-bottom: 22px; }
+}
+
+/* ==========================================================================
+   Versão final: foto real no topo, antes e depois com botões, localização
+   ========================================================================== */
+:root { --dourado: #f2b51d; }
+body { padding-bottom: 0; }
+
+/* Topo */
+.hero { padding: 0 0 36px; background: var(--branco); }
+.hero__grid { gap: 22px; }
+.hero__foto { position: relative; order: -1; margin: 0 -20px; }
+.hero__foto img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 35%; }
+.hero__selo {
+  position: absolute; left: 16px; bottom: 14px; display: flex; flex-direction: column; gap: 2px;
+  padding: 8px 12px; border-radius: 10px; background: rgba(255, 255, 255, .95);
+  font-size: .8rem; font-weight: 600; color: var(--navy); box-shadow: 0 6px 18px rgba(11, 31, 68, .18);
+}
+.estrelas { display: flex; gap: 2px; color: var(--dourado); }
+.estrelas svg { width: 14px; height: 14px; }
+.hero h1 { font-size: clamp(2rem, 8vw, 3.4rem); margin: 10px 0 12px; }
+.hero__acoes { margin: 22px 0 18px; }
+
+/* Seções mais compactas no celular */
+.sec { padding: 52px 0; }
+.cab { margin-bottom: 24px; }
+.credenciais strong { color: #fff; }
+.credenciais__lista li:nth-child(1) strong { color: var(--dourado); }
+
+/* Antes e depois */
+.ad { border-radius: 16px; box-shadow: 0 18px 40px rgba(11, 31, 68, .16); }
+.ad__depois { transition: clip-path .5s var(--ease); }
+.ad.arrastando .ad__depois, .ad.arrastando .ad__alca { transition: none; }
+.ad__alca { transition: left .5s var(--ease); }
+.ad__alca span { width: 52px; height: 52px; border: 3px solid var(--azul); }
+.ad__dica {
+  position: absolute; left: 50%; bottom: 14px; z-index: 3; transform: translateX(-50%);
+  padding: .4em .9em; border-radius: 99px; font-size: .8rem; font-weight: 600; white-space: nowrap;
+  color: #fff; background: rgba(11, 31, 68, .78); pointer-events: none; transition: opacity .3s;
+}
+.ad.usado .ad__dica { opacity: 0; }
+.ad__botoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 12px; padding: 5px; border-radius: 12px; background: var(--azul-suave); }
+.ad__botoes button {
+  min-height: 46px; border: 0; border-radius: 9px; cursor: pointer; background: transparent;
+  font-family: var(--f-titulo); font-weight: 700; font-size: .9rem; color: var(--suave);
+  transition: background-color .2s, color .2s; -webkit-tap-highlight-color: transparent;
+}
+.ad__botoes button[aria-pressed="true"] { background: var(--branco); color: var(--navy); box-shadow: 0 2px 8px rgba(11, 31, 68, .12); }
+.caso__info { margin-top: 12px; }
+.caso__tag { display: block; margin-bottom: 4px; font-size: .78rem !important; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--azul) !important; }
+.caso__info .btn { width: 100%; }
+
+.ad__alca, .ad__rot { transition: left .5s var(--ease), opacity .3s; }
+.ad.arrastando .ad__alca { transition: opacity .3s; }
+.ad.so-antes .ad__alca, .ad.so-depois .ad__alca, .ad.so-antes .ad__rot--depois, .ad.so-depois .ad__rot--antes { opacity: 0; }
+
+/* Botão azul */
+.btn--azul { color: #fff; background: var(--azul); }
+.btn--azul:hover { background: var(--navy); }
+
+/* Localização */
+.local { display: grid; gap: 22px; }
+.local__foto { position: relative; display: block; overflow: hidden; border-radius: 16px; box-shadow: 0 18px 40px rgba(11, 31, 68, .14); }
+.local__foto img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .5s var(--ease); }
+.local__foto:hover img { transform: scale(1.03); }
+.local__pino {
+  position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: .4em;
+  padding: .45em .9em; border-radius: 99px; font-size: .85rem; font-weight: 600; color: var(--navy); background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+}
+.local__pino svg { width: 18px; height: 18px; color: var(--azul); }
+.local h2 { margin: 10px 0 16px; font-size: clamp(1.6rem, 6vw, 2.3rem); }
+.local__dados { display: grid; gap: 10px; margin-bottom: 22px; }
+.local__dados li { display: flex; gap: 10px; align-items: flex-start; }
+.local__dados .ico { color: var(--azul); margin-top: .2em; }
+.local__acoes { display: grid; gap: 6px; justify-items: start; }
+.local__acoes .btn { width: 100%; font-size: clamp(.86rem, 3.9vw, 1.05rem); padding-inline: 1em; }
+
+/* Tratamentos: 11 itens */
+.trat span { line-height: 1.3; }
+
+/* Barra do celular não cobre o rodapé */
+@media (max-width: 999px) { .rodape { padding-bottom: calc(96px + env(safe-area-inset-bottom)); } }
+
+@media (min-width: 700px) {
+  .sec { padding: 80px 0; }
+  .hero { padding-bottom: 56px; }
+  .hero__foto { margin: 0; border-radius: 0 0 20px 20px; overflow: hidden; }
+  .caso__info .btn, .local__acoes .btn { width: auto; }
+  .ad__botoes { max-width: 420px; margin-left: auto; margin-right: auto; }
+}
+@media (min-width: 1000px) {
+  .hero { padding: 56px 0 72px; background: linear-gradient(180deg, #fff, var(--fundo)); }
+  .hero__grid { grid-template-columns: 1fr 1.05fr; align-items: center; gap: 56px; }
+  .hero__texto { padding: 0; }
+  .hero__foto { order: 0; border-radius: 22px; box-shadow: 0 24px 50px rgba(11, 31, 68, .18); }
+  .hero__foto img { aspect-ratio: 4 / 3.3; }
+  .hero__selo { left: 20px; bottom: 20px; font-size: .88rem; }
+  .local { grid-template-columns: 1.1fr .9fr; align-items: center; gap: 56px; }
+}
+
+/* ==========================================================================
+   Identidade: topo azul-escuro com brilho, o resto do site em branco
+   ========================================================================== */
+.topo, .topo.rolou { background: var(--navy); border-color: rgba(255, 255, 255, .08); }
+.marca { color: #fff; }
+.marca__txt small { color: #a9b9d6; }
+.menu a { color: rgba(255, 255, 255, .78); }
+.menu a:hover { color: #fff; }
+
+.hero {
+  position: relative; overflow: hidden; color: #fff;
+  background:
+    radial-gradient(ellipse 60% 55% at 85% 35%, rgba(47, 123, 255, .45), transparent 70%),
+    radial-gradient(ellipse 50% 50% at 0% 100%, rgba(6, 70, 167, .45), transparent 70%),
+    linear-gradient(170deg, #071533 0%, var(--navy) 50%, var(--navy-2) 100%);
+}
+.hero h1 { color: #fff; }
+.hero h1 em {
+  display: block; font-family: var(--f-serif); font-style: italic; font-weight: 400;
+  background: linear-gradient(100deg, #9fcaff 20%, #fff 50%, #9fcaff 80%); background-size: 250% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent; animation: reluz 7s linear infinite;
+}
+@keyframes reluz { from { background-position: 100% center; } to { background-position: -150% center; } }
+.hero__gancho { margin-top: 4px; font-size: 1.04rem; color: #c3d2ec; }
+.hero__gancho strong { color: #fff; }
+.hero__sub { color: #b3c3df; }
+.hero__provas { color: #dbe5f5; }
+.hero__provas .ico { color: #4ade80; }
+.hero .link { color: #9fcaff; }
+.hero__foto img { box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
+.hero__selo .estrelas { color: var(--dourado); }
+
+/* Credenciais coladas ao topo, ainda no azul */
+.credenciais { background: #071533; border-top: 1px solid rgba(255, 255, 255, .08); }
+
+@media (max-width: 999px) {
+  .hero__foto { margin: 0 -20px; }
+  .hero__foto img { box-shadow: none; }
+  .hero__foto::after { content: ""; position: absolute; inset: auto 0 0; height: 70px; background: linear-gradient(transparent, #0b1f44); pointer-events: none; }
+  .hero__selo { z-index: 1; bottom: 18px; }
+}
+@media (min-width: 1000px) {
+  .hero { padding: 64px 0 80px; }
+  .hero__foto { box-shadow: 0 30px 70px rgba(0, 0, 0, .4); border: 1px solid rgba(255, 255, 255, .1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
