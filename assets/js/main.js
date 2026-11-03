@@ -4,8 +4,8 @@
    ========================================================================== */
 
 const CONFIG = {
-  // EDITAR: número do WhatsApp com DDI + DDD, só dígitos. Ex.: 5543999999999
-  whatsapp: '5543000000000',
+  // Número do WhatsApp com DDI + DDD, só dígitos
+  whatsapp: '5543999913414',
   mensagem: 'Olá! Vim pelo site e quero agendar uma avaliação na Clínica Dentária Central Norte.',
   // Velocidade da faixa da equipe (pixels por segundo)
   velocidadeEquipe: 28
@@ -79,6 +79,43 @@ if ('IntersectionObserver' in window && !reduzMovimento) {
   }, { threshold: .6 }).observe(ad);
 }
 
+// Depoimentos: troca a cada 7 segundos, pausa quando a pessoa interage
+(function () {
+  const caixa = $('#depos');
+  if (!caixa) return;
+  const itens = $$('.depo', caixa);
+  const pontos = $('#depos-pontos');
+  let atual = 0, timer;
+  itens.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ver depoimento ' + (i + 1));
+    b.addEventListener('click', () => { ir(i); reiniciar(); });
+    pontos.appendChild(b);
+  });
+  function ir(i) {
+    atual = (i + itens.length) % itens.length;
+    itens.forEach((el, k) => el.classList.toggle('ativo', k === atual));
+    $$('button', pontos).forEach((b, k) => b.setAttribute('aria-current', k === atual));
+  }
+  function reiniciar() { clearInterval(timer); if (!reduzMovimento) timer = setInterval(() => ir(atual + 1), 7000); }
+  caixa.addEventListener('mouseenter', () => clearInterval(timer));
+  caixa.addEventListener('mouseleave', reiniciar);
+  let x0 = null;
+  caixa.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  caixa.addEventListener('touchend', (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) { ir(atual + (dx < 0 ? 1 : -1)); reiniciar(); }
+    x0 = null;
+  }, { passive: true });
+  ir(0);
+  reiniciar();
+})();
+
+// Cliques em ligar
+$$('[data-evento="ligar"]').forEach((a) => a.addEventListener('click', () => registrar('ligar_click', {})));
+
 // Cliques no mapa
 $$('[data-evento="mapa"], .local__foto').forEach((a) => a.addEventListener('click', () => registrar('mapa_click', {})));
 
@@ -120,7 +157,7 @@ if (!reduzMovimento) {
 }
 
 // Entrada suave das seções ----------------------------------------------------
-const aRevelar = $$('.cab, .caso, .dores, .solucoes, .compara, .tratamentos, .faq, .final__grid');
+const aRevelar = $$('.cab, .caso, .depos, .local, .dores, .solucoes, .compara, .tratamentos, .faq, .final__grid');
 if ('IntersectionObserver' in window && !reduzMovimento) {
   aRevelar.forEach((el) => el.classList.add('revela'));
   const obs = new IntersectionObserver((itens) => {

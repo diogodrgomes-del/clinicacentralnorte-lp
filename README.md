@@ -13,21 +13,21 @@ assets/img/             logo, favicon, foto do topo, fachada e fotos do caso rea
 
 ## Seções
 
-1. Topo em azul-escuro com promessa, botão de WhatsApp e foto (o resto do site é branco)
-2. Faixa de credibilidade (equipe, foco, plano individual, Londrina)
-3. Caso real — antes e depois arrastável, com botões Ver antes / Comparar / Ver depois
-4. "Alguma dessas situações faz parte do seu dia?" — a pessoa marca e o botão abre o WhatsApp com o que marcou
-5. Implante × Prótese protocolo + tabela dentadura × protocolo fixo
-6. Equipe — faixa contínua com 9 especialistas (pausa ao passar o mouse ou tocar)
-7. Outros tratamentos (11 itens; cada um abre o WhatsApp com a mensagem daquele tratamento)
-8. Localização — foto da fachada e botão para abrir o mapa (Av. Saul Elkind)
-9. Dúvidas frequentes
-10. Contato + rodapé com responsável técnico
-11. Botão flutuante (computador) e barra fixa (celular)
+1. Topo azul-escuro: promessa, "Agendar pelo WhatsApp", "Ligar agora" e endereço
+2. Faixa de credibilidade
+3. Caso real — antes e depois com botões Ver antes / Comparar / Ver depois
+4. Depoimentos — um por vez, troca a cada 7 segundos (arrasta no celular)
+5. Localização — fachada + botão para abrir o mapa (Av. Saul Elkind)
+6. Implante × Prótese protocolo + tabela dentadura × protocolo fixo
+7. "Você se reconhece?" — a pessoa marca e o WhatsApp já abre com o que marcou
+8. Equipe — faixa contínua com 9 especialistas
+9. Outros tratamentos (11 itens)
+10. Dúvidas frequentes
+11. Contato + rodapé com responsável técnico e política de privacidade
 
 ## Antes de publicar
 
-- **WhatsApp:** `CONFIG.whatsapp` no topo de `assets/js/main.js` (hoje é um número provisório).
+- **WhatsApp/telefone:** (43) 99991-3414 — `CONFIG.whatsapp` em `assets/js/main.js` e os links `tel:` no `index.html`.
 - **Pontos `<!-- EDITAR -->`** no `index.html` (`grep -n EDITAR index.html`):
   itens da faixa de credibilidade, endereço, horários, CNPJ, responsável técnico com CRO,
   condições de pagamento, respostas do FAQ, domínio e rastreamento.
@@ -38,6 +38,13 @@ assets/img/             logo, favicon, foto do topo, fachada e fotos do caso rea
   enquadramento e troque os `src`.
 - **Foto do topo (`hero-casal.webp`):** confirme que tem licença de uso.
 - **Localização:** o link do mapa está em `index.html` (procure `share.google`). Complete número e horários.
+
+## Google Ads
+
+- Página de política de privacidade: `politica-de-privacidade.html` (revise CNPJ).
+- Conversões para criar no GTM a partir do `dataLayer`:
+  `whatsapp_click` (campo `origem`), `ligar_click`, `mapa_click` e `antes_depois`.
+- Use o título do anúncio alinhado ao topo: "Implantes Dentários em Londrina".
 
 ## Conversões
 

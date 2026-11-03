@@ -455,6 +455,71 @@ body { padding-bottom: 0; }
   .hero__foto { box-shadow: 0 30px 70px rgba(0, 0, 0, .4); border: 1px solid rgba(255, 255, 255, .1); }
 }
 
+/* ==========================================================================
+   Versão Google Ads: topo mais direto, ligar, depoimentos, localização
+   ========================================================================== */
+.hero h1 em { animation: none; background: none; -webkit-background-clip: border-box; background-clip: border-box; color: #9fcaff; }
+.btn--contorno { color: #fff; border: 1.5px solid rgba(255, 255, 255, .45); background: transparent; }
+.btn--contorno:hover { background: rgba(255, 255, 255, .1); }
+.hero__acoes { display: grid; gap: 10px; }
+.hero__acoes .btn { width: 100%; }
+.hero__acoes .btn--contorno { min-height: 50px; font-size: .98rem; }
+.hero__provas { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .92rem; }
+.hero__provas a { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255, 255, 255, .4); }
+.hero__provas li:last-child .ico { color: #9fcaff; }
+
+/* Depoimentos: um por vez, troca a cada 7 segundos */
+.depos { display: grid; }
+.depo {
+  grid-area: 1 / 1; margin: 0; padding: 26px 22px 22px; border-radius: 16px; background: #fff;
+  border: 1px solid var(--linha); box-shadow: 0 14px 34px rgba(11, 31, 68, .08);
+  opacity: 0; visibility: hidden; transform: translateX(16px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease), visibility 0s .5s;
+}
+.depo.ativo { opacity: 1; visibility: visible; transform: none; transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.depo .estrelas { margin-bottom: 12px; }
+.depo .estrelas svg { width: 18px; height: 18px; }
+.depo blockquote { margin: 0; font-size: 1.12rem; line-height: 1.6; color: var(--navy); font-weight: 500; }
+.depo figcaption { margin-top: 14px; font-size: .88rem; color: var(--suave); }
+.depos__pontos { display: flex; justify-content: center; gap: 4px; margin-top: 14px; }
+.depos__pontos button { position: relative; width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
+.depos__pontos button::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; transform: translate(-50%, -50%);
+  border-radius: 99px; background: #c3cddc; transition: width .3s var(--ease), background-color .3s;
+}
+.depos__pontos button[aria-current="true"]::before { width: 28px; background: var(--azul); }
+
+/* Contato e rodapé */
+.contato a { color: #fff; font-weight: 600; text-decoration: none; }
+.rodape a { color: #c3d0e6; }
+
+@media (max-width: 999px) {
+  .hero__foto img { aspect-ratio: 16 / 9; object-position: 50% 30%; }
+  .hero { padding-bottom: 28px; }
+  .hero__grid { gap: 14px; }
+  .hero h1 { font-size: clamp(1.95rem, 8.6vw, 2.6rem); margin: 8px 0 10px; }
+  .hero__gancho { font-size: .98rem; }
+  .hero__sub { font-size: .98rem; }
+  .hero__acoes { margin: 18px 0 14px; }
+}
+@media (min-width: 700px) {
+  .hero__acoes { grid-template-columns: auto auto; justify-content: start; }
+  .hero__acoes .btn { width: auto; }
+  .depo { padding: 34px 36px 30px; }
+  .depo blockquote { font-size: 1.25rem; }
+}
+
+@media (max-width: 999px) {
+  .so-pc { display: none; }
+  .hero__selo { left: 12px; bottom: 10px; padding: 6px 10px; font-size: .74rem; }
+  .hero__selo .estrelas svg { width: 12px; height: 12px; }
+  .hero__provas { font-size: .88rem; }
+}
+@media (max-width: 999px) and (max-height: 700px) {
+  .hero__gancho { display: none; }
+}
+@media (min-width: 700px) { .hero__acoes .btn--contorno { min-height: 58px; } }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
