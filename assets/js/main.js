@@ -119,26 +119,6 @@ $$('[data-evento="ligar"]').forEach((a) => a.addEventListener('click', () => reg
 // Cliques no mapa
 $$('[data-evento="mapa"], .local__foto').forEach((a) => a.addEventListener('click', () => registrar('mapa_click', {})));
 
-// "Alguma dessas situações faz parte do seu dia?" -----------------------------
-const dores = $$('.dor');
-const resultado = $('#resultado');
-const resultadoTitulo = $('#resultado-titulo');
-const resultadoBtn = $('#resultado-btn');
-
-dores.forEach((dor) => {
-  dor.addEventListener('click', () => {
-    dor.setAttribute('aria-pressed', dor.getAttribute('aria-pressed') !== 'true');
-    const marcadas = dores.filter((d) => d.getAttribute('aria-pressed') === 'true');
-    resultado.hidden = marcadas.length === 0;
-    if (!marcadas.length) return;
-    resultadoTitulo.textContent = marcadas.length === 1 ? 'Isso tem tratamento.' : 'Tudo isso tem tratamento.';
-    resultadoBtn.href = linkWhatsApp(
-      'Olá! Vim pelo site. Hoje eu:\n' + marcadas.map((d) => '• ' + d.textContent.trim()).join('\n') +
-      '\n\nGostaria de agendar uma avaliação.'
-    );
-  });
-});
-
 // Equipe: faixa contínua ------------------------------------------------------
 const faixa = $('#equipe-faixa');
 const trilho = $('#equipe-trilho');
@@ -157,7 +137,7 @@ if (!reduzMovimento) {
 }
 
 // Entrada suave das seções ----------------------------------------------------
-const aRevelar = $$('.cab, .caso, .depos, .local, .dores, .solucoes, .compara, .tratamentos, .faq, .final__grid');
+const aRevelar = $$('.cab, .caso, .depos, .local, .tratamentos, .faq, .final__grid');
 if ('IntersectionObserver' in window && !reduzMovimento) {
   aRevelar.forEach((el) => el.classList.add('revela'));
   const obs = new IntersectionObserver((itens) => {
