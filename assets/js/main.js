@@ -8,7 +8,7 @@ const CONFIG = {
   whatsapp: '5543999913414',
   mensagem: 'Olá! Vim pelo site e quero agendar uma avaliação na Clínica Dentária Central Norte.',
   // Velocidade da faixa da equipe (pixels por segundo)
-  velocidadeEquipe: 28
+  velocidadeEquipe: 45
 };
 
 const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
