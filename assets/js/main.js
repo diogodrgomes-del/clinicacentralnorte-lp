@@ -120,21 +120,73 @@ $$('[data-evento="ligar"]').forEach((a) => a.addEventListener('click', () => reg
 $$('[data-evento="mapa"], .local__foto').forEach((a) => a.addEventListener('click', () => registrar('mapa_click', {})));
 
 // Equipe: faixa contínua ------------------------------------------------------
-const faixa = $('#equipe-faixa');
-const trilho = $('#equipe-trilho');
-if (!reduzMovimento) {
+// Anda sozinha o tempo todo. A pessoa pode arrastar para os dois lados e,
+// ao soltar, a faixa segue com o embalo e volta à velocidade normal.
+(function () {
+  const faixa = $('#equipe-faixa');
+  const trilho = $('#equipe-trilho');
+  if (!faixa || !trilho) return;
+
   $$('.doutor', trilho).forEach((card) => {
     const copia = card.cloneNode(true);
     copia.setAttribute('aria-hidden', 'true');
     trilho.appendChild(copia);
   });
-  const ajustar = () => trilho.style.setProperty('--duracao', (trilho.scrollWidth / 2 / CONFIG.velocidadeEquipe) + 's');
-  ajustar();
-  addEventListener('resize', ajustar);
-  let retomar;
-  faixa.addEventListener('touchstart', () => { clearTimeout(retomar); faixa.classList.add('pausado'); }, { passive: true });
-  faixa.addEventListener('touchend', () => { retomar = setTimeout(() => faixa.classList.remove('pausado'), 2000); }, { passive: true });
-}
+
+  let metade = trilho.scrollWidth / 2;
+  addEventListener('resize', () => { metade = trilho.scrollWidth / 2; });
+
+  const base = reduzMovimento ? 0 : -CONFIG.velocidadeEquipe; // px/s (negativo = para a esquerda)
+  let x = 0, vel = base, arrastando = false, ultimoX = 0, ultimoT = 0, inicioX = 0, inicioY = 0, decidido = false, horizontal = false;
+
+  function aplicar() {
+    if (x <= -metade) x += metade;
+    if (x > 0) x -= metade;
+    trilho.style.transform = 'translate3d(' + x + 'px,0,0)';
+  }
+
+  let anterior = performance.now();
+  function quadro(agora) {
+    const dt = Math.min(0.05, (agora - anterior) / 1000);
+    anterior = agora;
+    if (!arrastando) {
+      vel += (base - vel) * Math.min(1, dt * 2.2); // embalo vai voltando à velocidade normal
+      x += vel * dt;
+      aplicar();
+    }
+    requestAnimationFrame(quadro);
+  }
+  requestAnimationFrame(quadro);
+
+  faixa.addEventListener('pointerdown', (e) => {
+    arrastando = true; decidido = e.pointerType === 'mouse'; horizontal = decidido;
+    inicioX = ultimoX = e.clientX; inicioY = e.clientY; ultimoT = performance.now(); vel = 0;
+    if (e.pointerType === 'mouse') faixa.setPointerCapture(e.pointerId);
+  });
+  faixa.addEventListener('pointermove', (e) => {
+    if (!arrastando) return;
+    if (!decidido) {
+      const dx = Math.abs(e.clientX - inicioX), dy = Math.abs(e.clientY - inicioY);
+      if (dx < 6 && dy < 6) return;
+      decidido = true; horizontal = dx > dy;
+      if (!horizontal) { arrastando = false; vel = base; return; } // deixa a página rolar
+    }
+    const agora = performance.now();
+    const d = e.clientX - ultimoX;
+    x += d; aplicar();
+    const t = Math.max(1, agora - ultimoT);
+    vel = vel * 0.6 + (d / t * 1000) * 0.4;
+    ultimoX = e.clientX; ultimoT = agora;
+  });
+  const soltar = () => {
+    if (!arrastando) return;
+    arrastando = false;
+    vel = Math.max(-2500, Math.min(2500, vel || base));
+  };
+  faixa.addEventListener('pointerup', soltar);
+  faixa.addEventListener('pointercancel', soltar);
+  faixa.addEventListener('dragstart', (e) => e.preventDefault());
+})();
 
 // Entrada suave das seções ----------------------------------------------------
 const aRevelar = $$('.cab, .caso, .depos, .local, .tratamentos, .faq, .final__grid');
