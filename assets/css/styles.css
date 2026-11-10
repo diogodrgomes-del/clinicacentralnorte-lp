@@ -253,6 +253,9 @@ button { font: inherit; }
 .rodape__in { display: grid; gap: 2px; text-align: center; }
 .rodape strong { color: #d6deeb; }
 .rodape__copy { opacity: .7; }
+.rodape__credito { margin-top: 6px; font-size: .72rem; letter-spacing: .04em; opacity: .45; }
+.rodape__credito a { color: inherit !important; text-decoration: none; }
+.rodape__credito a:hover { opacity: 1; text-decoration: underline; }
 
 /* WhatsApp: botão flutuante (computador) e barra fixa (celular) */
 .wa-flutuante {
