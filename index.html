@@ -29,6 +29,7 @@
     "@type": "Dentist",
     "name": "Clínica Dentária Central Norte",
     "telephone": "+5543999913414",
+    "openingHours": ["Mo-Fr 08:00-19:00", "Sa 08:00-13:00"],
     "description": "Implantes dentários, prótese protocolo, próteses e tratamentos odontológicos em Londrina.",
     "address": { "@type": "PostalAddress", "streetAddress": "Av. Saul Elkind, 1433", "addressLocality": "Londrina", "addressRegion": "PR", "addressCountry": "BR" },
     "medicalSpecialty": ["Implantodontia", "Prótese dentária", "Ortodontia", "Endodontia", "Periodontia", "Odontopediatria"],
@@ -100,18 +101,19 @@
         <!-- EDITAR: confirme a autorização por escrito da paciente para uso da imagem (normas do CFO) -->
         <figure class="caso">
           <div class="ad" id="ad" style="--pos:50%">
-            <img class="ad__img" src="assets/img/caso1-antes.webp" alt="Antes: paciente com poucos dentes na arcada superior" width="960" height="540" loading="lazy" decoding="async">
-            <img class="ad__img ad__depois" src="assets/img/caso1-depois.webp" alt="Depois: sorriso completo com as próteses" width="960" height="540" loading="lazy" decoding="async">
-            <span class="ad__rot ad__rot--antes">Antes</span>
-            <span class="ad__rot ad__rot--depois">Depois</span>
+            <!-- Depois à esquerda e antes à direita: assim a falha dos dentes aparece logo ao lado do sorriso novo -->
+            <img class="ad__img" src="assets/img/caso1-depois.webp" alt="Depois: sorriso completo com as próteses" width="960" height="540" loading="lazy" decoding="async">
+            <img class="ad__img ad__depois" src="assets/img/caso1-antes.webp" alt="Antes: paciente com poucos dentes na arcada superior" width="960" height="540" loading="lazy" decoding="async">
+            <span class="ad__rot ad__rot--antes">Depois</span>
+            <span class="ad__rot ad__rot--depois">Antes</span>
             <div class="ad__alca" aria-hidden="true"><span><svg><use href="#i-arrastar"/></svg></span></div>
             <span class="ad__dica" aria-hidden="true">Arraste para comparar</span>
             <input class="ad__range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
           </div>
           <div class="ad__botoes" role="group" aria-label="Ver antes ou depois">
-            <button type="button" data-ir="100">Ver antes</button>
+            <button type="button" data-ir="0">Ver antes</button>
             <button type="button" data-ir="50" aria-pressed="true">Comparar</button>
-            <button type="button" data-ir="0">Ver depois</button>
+            <button type="button" data-ir="100">Ver depois</button>
           </div>
           <figcaption class="caso__info">
             <div>
@@ -164,10 +166,10 @@
         <div class="local__texto">
           <p class="rotulo">Onde estamos</p>
           <h2>Estamos na Av. Saul Elkind</h2>
-          <!-- EDITAR: bairro e horários -->
+          <!-- EDITAR: bairro -->
           <ul class="local__dados">
             <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Av. Saul Elkind, 1433 · Londrina, PR</span></li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><span>Segunda a sexta e sábado pela manhã</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><span>Seg a sex: 8h às 19h · Sáb: 8h às 13h</span></li>
           </ul>
           <div class="local__acoes">
             <a class="btn btn--azul btn--lg" href="https://share.google/MxgLonXi7uAe0Mv78" target="_blank" rel="noopener" data-evento="mapa">
@@ -350,7 +352,7 @@
             <!-- EDITAR: endereço e horários -->
             <li><svg class="ico" aria-hidden="true"><use href="#i-telefone"/></svg><a href="tel:+5543999913414" data-evento="ligar">(43) 99991-3414</a></li>
             <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Av. Saul Elkind, 1433<br>Londrina · PR</span></li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><span>Segunda a sexta e<br>sábado pela manhã</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><span>Segunda a sexta: 8h às 19h<br>Sábado: 8h às 13h · Domingo fechado</span></li>
           </ul>
           <a class="btn btn--linha btn--bloco" href="https://share.google/MxgLonXi7uAe0Mv78" target="_blank" rel="noopener" data-evento="mapa">Ver localização no mapa</a>
         </div>
@@ -362,8 +364,7 @@
   <footer class="rodape">
     <div class="wrap rodape__in">
       <p><strong>Clínica Dentária Central Norte</strong> · Londrina, PR</p>
-      <!-- EDITAR: CNPJ e responsável técnico com CRO (exigência do CFO) -->
-      <p>Responsável técnica: Dra. Andressa Lofrano · CRO-PR 00000 · CNPJ 00.000.000/0001-00</p>
+      <p>Responsável técnica: Dra. Andressa Lofrano · CRO-PR 19147 · CNPJ 08.914.241/0001-58</p>
       <p>WhatsApp e telefone: <a href="tel:+5543999913414">(43) 99991-3414</a> · <a href="politica-de-privacidade.html">Política de privacidade</a></p>
       <p class="rodape__copy">© <span id="ano">2026</span> Clínica Dentária Central Norte</p>
     </div>

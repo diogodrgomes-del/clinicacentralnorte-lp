@@ -133,8 +133,8 @@ button { font: inherit; }
   font-family: var(--f-titulo); font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: #fff; background: rgba(11, 31, 68, .78);
 }
-.ad__rot--antes { left: 12px; }
-.ad__rot--depois { right: 12px; background: var(--azul); }
+.ad__rot--antes { left: 12px; background: var(--azul); }
+.ad__rot--depois { right: 12px; background: rgba(11, 31, 68, .78); }
 .ad__alca { position: absolute; z-index: 3; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; pointer-events: none; }
 .ad__alca span {
   position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 46px; height: 46px;
@@ -344,7 +344,7 @@ body { padding-bottom: 0; }
 .ad__alca { transition: left .5s var(--ease); }
 .ad__alca span { width: 52px; height: 52px; border: 3px solid var(--azul); }
 .ad__dica {
-  position: absolute; left: 50%; top: 14px; z-index: 3; transform: translateX(-50%);
+  position: absolute; left: 50%; bottom: 12px; z-index: 3; transform: translateX(-50%);
   padding: .4em .9em; border-radius: 99px; font-size: .8rem; font-weight: 600; white-space: nowrap;
   color: #fff; background: rgba(11, 31, 68, .78); pointer-events: none; transition: opacity .3s;
 }
