@@ -120,8 +120,8 @@ $$('[data-evento="ligar"]').forEach((a) => a.addEventListener('click', () => reg
 $$('[data-evento="mapa"], .local__foto').forEach((a) => a.addEventListener('click', () => registrar('mapa_click', {})));
 
 // Equipe: faixa contínua ------------------------------------------------------
-// Anda sozinha o tempo todo. A pessoa pode arrastar para os dois lados e,
-// ao soltar, a faixa segue com o embalo e volta à velocidade normal.
+// Nunca para: anda sozinha o tempo todo. Se a pessoa segurar, continua andando;
+// se arrastar, a faixa vai junto com o dedo e, ao soltar, segue com o embalo.
 (function () {
   const faixa = $('#equipe-faixa');
   const trilho = $('#equipe-trilho');
@@ -136,55 +136,65 @@ $$('[data-evento="mapa"], .local__foto').forEach((a) => a.addEventListener('clic
   let metade = trilho.scrollWidth / 2;
   addEventListener('resize', () => { metade = trilho.scrollWidth / 2; });
 
-  const base = reduzMovimento ? 0 : -CONFIG.velocidadeEquipe; // px/s (negativo = para a esquerda)
-  let x = 0, vel = base, arrastando = false, ultimoX = 0, ultimoT = 0, inicioX = 0, inicioY = 0, decidido = false, horizontal = false;
+  const base = reduzMovimento ? 0 : -CONFIG.velocidadeEquipe; // px/s, para a esquerda
+  let x = 0;
+  let embalo = 0;            // velocidade extra do gesto, vai sumindo sozinha
+  let tocando = false, decidido = false, horizontal = false;
+  let iniX = 0, iniY = 0, ultX = 0, ultT = 0, velDedo = 0;
 
   function aplicar() {
-    if (x <= -metade) x += metade;
-    if (x > 0) x -= metade;
+    if (metade > 0) { while (x <= -metade) x += metade; while (x > 0) x -= metade; }
     trilho.style.transform = 'translate3d(' + x + 'px,0,0)';
   }
 
   let anterior = performance.now();
-  function quadro(agora) {
+  (function quadro(agora) {
     const dt = Math.min(0.05, (agora - anterior) / 1000);
     anterior = agora;
-    if (!arrastando) {
-      vel += (base - vel) * Math.min(1, dt * 2.2); // embalo vai voltando à velocidade normal
-      x += vel * dt;
-      aplicar();
-    }
+    if (!(tocando && horizontal)) embalo *= Math.exp(-dt * 2.5);
+    x += (base + embalo) * dt;
+    aplicar();
     requestAnimationFrame(quadro);
-  }
-  requestAnimationFrame(quadro);
+  })(anterior);
 
-  faixa.addEventListener('pointerdown', (e) => {
-    arrastando = true; decidido = e.pointerType === 'mouse'; horizontal = decidido;
-    inicioX = ultimoX = e.clientX; inicioY = e.clientY; ultimoT = performance.now(); vel = 0;
-    if (e.pointerType === 'mouse') faixa.setPointerCapture(e.pointerId);
-  });
-  faixa.addEventListener('pointermove', (e) => {
-    if (!arrastando) return;
+  function inicio(cx, cy, mouse) {
+    tocando = true; decidido = mouse; horizontal = mouse;
+    iniX = ultX = cx; iniY = cy; ultT = performance.now(); velDedo = 0;
+  }
+  function mover(cx, cy, e) {
+    if (!tocando) return;
     if (!decidido) {
-      const dx = Math.abs(e.clientX - inicioX), dy = Math.abs(e.clientY - inicioY);
-      if (dx < 6 && dy < 6) return;
-      decidido = true; horizontal = dx > dy;
-      if (!horizontal) { arrastando = false; vel = base; return; } // deixa a página rolar
+      const dx = Math.abs(cx - iniX), dy = Math.abs(cy - iniY);
+      if (dx < 5 && dy < 5) return;
+      decidido = true; horizontal = dx >= dy;
+      if (!horizontal) { tocando = false; return; } // gesto vertical: deixa a página rolar
+      ultX = iniX; ultT = performance.now();
+      embalo = 0;
     }
+    if (e && e.cancelable) e.preventDefault();
     const agora = performance.now();
-    const d = e.clientX - ultimoX;
+    const d = cx - ultX;
     x += d; aplicar();
-    const t = Math.max(1, agora - ultimoT);
-    vel = vel * 0.6 + (d / t * 1000) * 0.4;
-    ultimoX = e.clientX; ultimoT = agora;
-  });
-  const soltar = () => {
-    if (!arrastando) return;
-    arrastando = false;
-    vel = Math.max(-2500, Math.min(2500, vel || base));
-  };
-  faixa.addEventListener('pointerup', soltar);
-  faixa.addEventListener('pointercancel', soltar);
+    const t = Math.max(8, agora - ultT);
+    velDedo = velDedo * 0.5 + (d / t * 1000) * 0.5;
+    ultX = cx; ultT = agora;
+  }
+  function fim() {
+    if (!tocando) return;
+    if (horizontal) embalo = Math.max(-3000, Math.min(3000, velDedo - base));
+    tocando = false; horizontal = false;
+  }
+
+  // Toque (celular)
+  faixa.addEventListener('touchstart', (e) => { const t = e.touches[0]; inicio(t.clientX, t.clientY, false); }, { passive: true });
+  faixa.addEventListener('touchmove', (e) => { const t = e.touches[0]; mover(t.clientX, t.clientY, e); }, { passive: false });
+  faixa.addEventListener('touchend', fim, { passive: true });
+  faixa.addEventListener('touchcancel', fim, { passive: true });
+
+  // Mouse (computador)
+  faixa.addEventListener('mousedown', (e) => { e.preventDefault(); inicio(e.clientX, e.clientY, true); });
+  addEventListener('mousemove', (e) => mover(e.clientX, e.clientY));
+  addEventListener('mouseup', fim);
   faixa.addEventListener('dragstart', (e) => e.preventDefault());
 })();
 
