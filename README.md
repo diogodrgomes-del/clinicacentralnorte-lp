@@ -20,7 +20,7 @@ assets/img/             logo, favicon, foto do topo, fachada e fotos do caso rea
 5. Localização — fachada + botão para abrir o mapa (Av. Saul Elkind)
 6. Implante × Prótese protocolo + tabela dentadura × protocolo fixo
 7. "Você se reconhece?" — a pessoa marca e o WhatsApp já abre com o que marcou
-8. Equipe — faixa contínua com 9 especialistas
+8. Equipe — faixa contínua com 13 pessoas (fotos em assets/img/equipe-*.webp)
 9. Outros tratamentos (11 itens)
 10. Dúvidas frequentes
 11. Contato + rodapé com responsável técnico e política de privacidade
